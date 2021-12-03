@@ -1,0 +1,12 @@
+[
+  {
+    "icon": "american-football",
+    "name": "Convocatorias",
+    "redirectTo": "/action-sheet"
+  },
+  {
+    "icon": "albums",
+    "name": "Otro Item",
+    "redirectTo": "/slides"
+  }
+]
