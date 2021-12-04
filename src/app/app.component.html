@@ -7,16 +7,38 @@
                 </ion-toolbar>
             </ion-header>
             <ion-content>
-                <ion-list>
-                    <ion-menu-toggle autoHide="false" *ngFor="let c of componentes | async">
-                        <ion-item [routerLink]="c.redirectTo" detail>
-                            <ion-icon slot="start" [name]="c.icon"></ion-icon>
-                            <ion-label>{{c.name}} </ion-label>
+                <div *ngFor="let p of componentes | async">
+                    <ion-menu-toggle *ngIf="p.redirectTo">
+                        <ion-item [routerLink]="p.redirectTo" routerDirection="root" routerLinkActive="active">
+                            <ion-icon [name]="p.icon" slot="start"></ion-icon>
+                            <ion-label>{{p.name}}</ion-label>
                         </ion-item>
                     </ion-menu-toggle>
-                </ion-list>
+                    <ion-item button *ngIf="p?.children?.length > 0" (click)="p.open = !p.open" [class.active-parent]="p.open" detail="false">
+                        <ion-icon slot="start" [name]="p.icon"> </ion-icon>
+                        <ion-icon slot="end" name="chevron-forward-outline" [ngClass]="{'rotated': p.open, 'parent-icon':true }">
+                        </ion-icon>
+                        <ion-label>{{p.name}}</ion-label>
+                    </ion-item>
+                    <ion-list class="sub-list" *ngIf="p.open">
+                        <ion-menu-toggle autoHide="false">
+                            <ion-item class="sub-item" *ngFor="let sub of p.children" [routerLink]="sub.url" routerDirection="root" routerLinkActive="active">
+                                <ion-icon [name]="sub.icon" slot="start"></ion-icon>
+                                <ion-label>{{sub.title}}</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+                    </ion-list>
+                </div>
+
             </ion-content>
+            <ion-footer>
+
+                <ion-button expand="block">Cerrar sesión</ion-button>
+
+            </ion-footer>
         </ion-menu>
         <ion-router-outlet id="principal"></ion-router-outlet>
     </ion-split-pane>
+
+
 </ion-app>

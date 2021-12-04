@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-
-import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Componente } from './interfaces/interfaces';
 import { DataService } from './services/data.service';
+
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ import { DataService } from './services/data.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
   componentes:Observable<Componente[]>
   constructor(
     private platform: Platform,

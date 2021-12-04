@@ -1,0 +1,31 @@
+.active {
+  --ion-text-color: var(--ion-color-primary);
+  ion-icon {
+    color: var(--ion-color-primary);
+  }
+}
+.active-parent {
+  font-weight: 500;
+  --ion-text-color: var(--ion-color-teriary);
+  ion-icon {
+    color: var(--ion-color-teriary);
+  }
+}
+
+.sub-item {
+  padding-left: 20px;
+  font-size: 90%;
+}
+
+ion-icon.parent-icon {
+  transition: transform 0.3s ease;
+
+  &.rotated {
+    transform: rotate(90deg);
+  }
+}
+
+ion-list.sub-list {
+  padding-top: 0;
+  padding-bottom: 0;
+}
