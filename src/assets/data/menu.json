@@ -8,5 +8,10 @@
     "icon": "albums",
     "name": "Otro Item",
     "redirectTo": "/slides"
+  },
+  {
+    "icon": "analytics",
+    "name": "Gestion de Vinculación",
+    "redirectTo": "/gestion-vinculacion"
   }
 ]
