@@ -13,6 +13,38 @@ const routes: Routes = [
     path: "slides",
     loadChildren: "./pages/slides/slides.module#SlidesPageModule",
   },
+  { path: 'login',
+   loadChildren: './pages/login/login.module#LoginPageModule' },
+ 
+
+  { 
+    path: 'informacion', children: [
+      {
+        path: 'convocatoria',
+        loadChildren: () =>
+          import('./pages/informacion/convocatoria/convocatoria.module').then((m) => m.ConvocatoriaPageModule),
+      },
+      {
+        path: 'info-procesos',
+        loadChildren: () =>
+          import('./pages/informacion/info-procesos/info-procesos.module').then((m) => m.InfoProcesosPageModule),
+      },
+      {
+        path: 'instructivo',
+        loadChildren: () =>
+          import('./pages/informacion/instructivo/instructivo.module').then((m) => m.InstructivoPageModule),
+        },
+        {
+          path: 'info-carrera',
+          loadChildren: () =>
+            import('./pages/informacion/info-carrera/info-carrera.module').then((m) => m.InfoCarreraPageModule),
+          },
+      ]
+      
+    },
+
+
+
 
   {
     path: 'gestion-vinculacion', children: [
@@ -31,12 +63,9 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/gestion-vinculacion/historial-procesos/historial-procesos.module').then((m) => m.HistorialProcesosPageModule),
       },
-    ],
-  },
-
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-];
-
+    ]
+  }
+]
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
