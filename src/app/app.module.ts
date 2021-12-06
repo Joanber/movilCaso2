@@ -11,10 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
 import {HttpClientModule} from '@angular/common/http'
 import { PipesModule } from './pipes/pipes.module';
+import { PopinfoComponent } from './components/popinfo/popinfo.component';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
+  entryComponents: [PopinfoComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ComponentsModule,HttpClientModule,PipesModule],
   providers: [
     StatusBar,

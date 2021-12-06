@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { PopinfoComponent } from '../popinfo/popinfo.component';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +9,31 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() titulo:string;
-  constructor() { }
+  
+  constructor( private popoverCtrl: PopoverController ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  async mostrarPop( evento ) {
+
+    const popover = await this.popoverCtrl.create({
+      component: PopinfoComponent,
+      event: evento,
+      mode: 'ios',
+      backdropDismiss: false
+    });
+
+    await popover.present();
+
+    // const { data } = await popover.onDidDismiss();
+    const { data } = await popover.onWillDismiss();
+
+
+  }
 
 }
+
+
+
+
