@@ -9,7 +9,6 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
-
 /* Core CSS required for Ionic components to work properly */
 
 @import "~@ionic/angular/css/core.css";
@@ -19,7 +18,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 
@@ -30,102 +29,194 @@
 @import "~@ionic/angular/css/flex-utils.css";
 .rojo span,
 .rojo .sc-ion-action-sheet-md {
-    color: red !important;
+  color: red !important;
+
 }
+:root {
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56,128,255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+
+  --ion-color-secondary: #3dc2ff;
+  --ion-color-secondary-rgb: 61,194,255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #36abe0;
+  --ion-color-secondary-tint: #50c8ff;
+
+  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary-rgb: 82,96,255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255,255,255;
+  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-tint: #6370ff;
+
+  --ion-color-success: #C8E1C2;
+  --ion-color-success-rgb: 40,93,39;
+  --ion-color-success-contrast: #285D27;
+  --ion-color-success-contrast-rgb: 255,255,255;
+  --ion-color-success-shade: #23522293;
+  --ion-color-success-tint: #3e6d3d;
+
+
+  --ion-color-warning: #FEEDAF;
+  --ion-color-warning-rgb: 254,237,175;
+  --ion-color-warning-contrast: #8A5340;
+  --ion-color-warning-contrast-rgb: 0,0,0;
+  --ion-color-warning-shade: #e0d19a;
+  --ion-color-warning-tint: #feefb7;
+
+  --ion-color-danger: #FFCDD2;
+  --ion-color-danger-rgb: 255,205,210;
+  --ion-color-danger-contrast: #C63737;
+  --ion-color-danger-contrast-rgb: 0,0,0;
+  --ion-color-danger-shade: #e0b4b9;
+  --ion-color-danger-tint: #ffd2d7;
+
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34,36,40;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255,255,255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146,148,156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255,255,255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244,245,248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0,0,0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+}
+// .aTiempo span {
+//   margin: 2px;
+//   text-align: center !important ;
+//   color: #256029 !important;
+//   background: #c8e6c9;
+//   border-radius: 5px;
+// }
+// .estados{
+//     align-items: center;
+//     text-align: center;
+// }
+// .plazoAcumplir span {
+//   margin: 2px;
+//   text-align: center !important ;
+//   color: #8a5340;
+//   background-color: #feedaf;
+//   border-radius: 5px;
+// }
+// .fueraTiempo span {
+//   margin: 2px;
+//   text-align: center !important ;
+//   color: #c63737;
+//   background-color: #ffcdd2;
+
+//   border-radius: 5px;
+// }
 
 .animated {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 .animated.infinite {
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 
 .animated.fast {
-    -webkit-animation-duration: 400ms;
-    animation-duration: 400ms;
+  -webkit-animation-duration: 400ms;
+  animation-duration: 400ms;
 }
 
 .animated.slow {
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
 }
 
 @-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
 @-webkit-keyframes flash {
-    from,
-    50%,
-    to {
-        opacity: 1;
-    }
-    25%,
-    75% {
-        opacity: 0.5;
-    }
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.5;
+  }
 }
 
 @keyframes flash {
-    from,
-    50%,
-    to {
-        opacity: 1;
-    }
-    25%,
-    75% {
-        opacity: 0;
-    }
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 
 .flash {
-    -webkit-animation-name: flash;
-    animation-name: flash;
+  -webkit-animation-name: flash;
+  animation-name: flash;
 }
 
 @-webkit-keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .fadeOut {
-    -webkit-animation-name: fadeOut;
-    animation-name: fadeOut;
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
 }

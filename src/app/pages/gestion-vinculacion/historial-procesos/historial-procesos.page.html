@@ -15,14 +15,13 @@
     <ion-item>
       <ion-label>Tipo</ion-label>
       <ion-select placeholder="Seleccinar">
-        <ion-select-option value="Proyectos">Proyectos</ion-select-option>
-        <ion-select-option value="Carreras">Carreras</ion-select-option>
+        <ion-select-option  *ngFor="let tipo of tipos" [value]="tipo.id">{{tipo.name}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
 
   <ion-list id="skeleton">
-    <ion-item [routerLink]="'./proyecto/id'" routerDirection="root" routerLinkActive="active">
+    <ion-item *ngFor='let item of items' [routerLink]="'./proyecto/id'" routerDirection="root" routerLinkActive="active">
       <ion-thumbnail slot="start">
         <ion-skeleton-text></ion-skeleton-text>
       </ion-thumbnail>
@@ -39,143 +38,5 @@
       </ion-label>
       <ion-icon name="chevron-forward"></ion-icon>
     </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
-
   </ion-list>
 </ion-content>
