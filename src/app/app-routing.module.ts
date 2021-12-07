@@ -15,9 +15,9 @@ const routes: Routes = [
   },
   { path: 'login',
    loadChildren: './pages/login/login.module#LoginPageModule' },
- 
 
-  { 
+
+  {
     path: 'informacion', children: [
       {
         path: 'convocatoria',
@@ -40,11 +40,7 @@ const routes: Routes = [
             import('./pages/informacion/info-carrera/info-carrera.module').then((m) => m.InfoCarreraPageModule),
           },
       ]
-      
     },
-
-
-
 
   {
     path: 'gestion-vinculacion', children: [

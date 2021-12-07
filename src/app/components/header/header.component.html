@@ -1,8 +1,19 @@
-<ion-header class="no-border" translucent>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/inicio"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-text-capitalize"> {{ titulo }} </ion-title>
-  </ion-toolbar>
+<ion-header no-border translucent>
+    <ion-toolbar>
+
+
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/inicio"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title class="ion-text-capitalize"> {{ titulo }} </ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="mostrarPop( $event )" color="primary">
+                <ion-icon name="notifications-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <img slot="end" alt="logo" height="45" class="ion-margin-end" src="/assets/icon/ista_logo.png">
+    </ion-toolbar>
 </ion-header>
