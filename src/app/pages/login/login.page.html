@@ -1,30 +1,76 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title text-center>Inicio Session</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row header align-items-start align-items-stretch>
 
-<ion-content padding>
-  <img class="icon"  class="ion-align-items-center"  src="/assets/icon/ISTA_02.png">
-  <br>
-  <br>
-  <br>
+      <!-- Section form>-->
+      <ion-col col-10 offset-1 col-md-6 offset-md-3>
+        <ion-row align-items-start>
+          <ion-col size="12" class="tittle">
+            <ion-label color="ista">Inicio Seccion</ion-label>
+          </ion-col>
+
+          <!-- logo -->
+          <ion-col size="12" class="icon">
+            <img class="icon" src="assets/icon/ISTA_02.png" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-align-items-center">
+
+          <!-- Input-field-username -->
+          <ion-col size="12" class="ion-text-center">
+            <ion-item>
+              <ion-label color="ista" position="floating">Correo</ion-label>
+              <ion-input type="text" [(ngModel)]="username" [ngModelOptions]="{standalone: true}"></ion-input>
+              <!-- <ion-label no-margin *ngIf="!isUsernameValid">{{data.errorUser}}</ion-label> -->
+            </ion-item>
+          </ion-col>
+
+          <!-- Input-field-password -->
+          <ion-col size="12" class="ion-text-center">
+            <ion-item>
+              <ion-label color="ista" position="floating">Contraseña</ion-label>
+              <ion-input type="password" [(ngModel)]="password" [type]="passwordType" clearOnEdit="false" [ngModelOptions]="{standalone: true}">
+              </ion-input>
+              <ion-icon class="eyeIcon" slot="end" [name]="passwordIcon" (click)='hideShowPassword()' size="50">
+              </ion-icon>
+              <!-- <ion-label no-margin *ngIf="!isPasswordValid">{{data.errorPassword}}</ion-label> -->
+            </ion-item>
+          </ion-col>
+
+          <br>
+
+          <!-- Login button -->
+          <ion-col size="12" class="ion-text-center">
+            <ion-button class="login-button" expand="full" shape="round" fill="outline" color="ista" (click)="onEvent()">Iniciar Sesion
+            </ion-button>
+          </ion-col>
+
+          <!-- Registrar button -->
+          <ion-col size="12" class="ion-text-center">
+            <ion-button class="registrar-button" expand="full" shape="round" fill="outline" color="ista" (click)="irRegistrarse()">Registrarse
+            </ion-button>
+          </ion-col>
 
 
-  <ion-item>
-    <ion-label position="floating">Correo Electronico</ion-label>
-    <ion-input type="text" name="email"></ion-input>
+          <!-- Description -->
+          <!-- <div description text-center>
+                <ion-row> -->
+          <!-- Reset your password button -->
+          <!-- <ion-col col-12 no-padding no-margin>
+                    <p no-margin no-padding>{{data.txtForgotPassword}} <a>{{data.btnResetYourPassword}}</a> </p>
+                  </ion-col> -->
+          <!-- Signup now button -->
+          <!-- <ion-col col-12padding>
+                    <p no-margin no-padding>{{data.txtSignupnow}} <a>{{data.btnSignupnow}}</a> </p>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-col>
+          </ion-row> -->
 
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input type="password" name="password"></ion-input>
-
-  </ion-item>
-  <br>
-  <ion-button expand="block"  href="/inicio">
-    Entrar
-  </ion-button>
-  <br>
-
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -14,8 +14,13 @@ const routes: Routes = [
     loadChildren: "./pages/slides/slides.module#SlidesPageModule",
   },
   { path: 'login',
-   loadChildren: './pages/login/login.module#LoginPageModule' },
+   loadChildren: './pages/login/login.module#LoginPageModule',
 
+  },
+   { path: "registro",
+  loadChildren: "./pages/registro/registro.module#RegistroPageModule"
+  },
+   
 
   {
     path: 'informacion', children: [
