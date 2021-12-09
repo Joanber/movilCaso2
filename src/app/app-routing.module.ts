@@ -13,8 +13,10 @@ const routes: Routes = [
     path: "slides",
     loadChildren: "./pages/slides/slides.module#SlidesPageModule",
   },
-  { path: 'login',
-   loadChildren: './pages/login/login.module#LoginPageModule' },
+  {
+    path: 'login',
+    loadChildren: './pages/login/login.module#LoginPageModule'
+  },
 
 
   {
@@ -33,14 +35,14 @@ const routes: Routes = [
         path: 'instructivo',
         loadChildren: () =>
           import('./pages/informacion/instructivo/instructivo.module').then((m) => m.InstructivoPageModule),
-        },
-        {
-          path: 'info-carrera',
-          loadChildren: () =>
-            import('./pages/informacion/info-carrera/info-carrera.module').then((m) => m.InfoCarreraPageModule),
-          },
-      ]
-    },
+      },
+      {
+        path: 'info-carrera',
+        loadChildren: () =>
+          import('./pages/informacion/info-carrera/info-carrera.module').then((m) => m.InfoCarreraPageModule),
+      },
+    ]
+  },
 
   {
     path: 'gestion-vinculacion', children: [
@@ -61,7 +63,7 @@ const routes: Routes = [
       },
     ]
   }
-]
+];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),

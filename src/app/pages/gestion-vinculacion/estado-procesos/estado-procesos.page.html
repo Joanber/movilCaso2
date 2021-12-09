@@ -1,4 +1,5 @@
 <app-header titulo="Estado de Procesos"></app-header>
+
 <ion-content fullscreen>
   <ion-list >
     <ion-item  [color]="currentStyle.color"   >
@@ -18,12 +19,36 @@
     <ion-badge  [ngStyle]="estado.style" item-end>{{estado.name.toUpperCase()}}</ion-badge>
   </ng-template>
 </div> -->
+<ion-list>
+  <ion-list-header>
+    Recent Conversations
+  </ion-list-header>
 
+  <ion-item *ngFor='let proceso of procesos' >
+    <ion-avatar slot="start">
+    <ion-icon name="ellipse-outline"></ion-icon>
+    </ion-avatar>
+
+    <ion-label>
+      <h2>{{proceso.id}}</h2>
+      <h3>{{proceso.carrera}}</h3>
+      <h3>{{proceso.convocatoriaId}}</h3>
+      <div *ngFor="let estado of status">
+        <ng-template [ngIf]="proceso.estado.toLowerCase() === estado.name.toLowerCase()">
+          <ion-badge [ngStyle]="estado.style" item-end>{{proceso.estado}}</ion-badge>
+        </ng-template>
+      </div>
+    </ion-label>
+
+  </ion-item>
+  </ion-list>
   <ion-list id="skeleton">
     <ion-item  *ngFor='let item of items' [routerLink]="'./estado/id'" routerDirection="root" routerLinkActive="active">
       <ion-thumbnail  class="ion-margin-start">
-        <ion-icon name="ellipse-outline" ></ion-icon>
-        <!-- <ion-skeleton-text></ion-skeleton-text> -->
+        <ion-icon name="ellipse-outline" >
+
+        </ion-icon>
+
       </ion-thumbnail>
       <ion-label>
         <h3>
