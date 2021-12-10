@@ -5,7 +5,7 @@
     "redirectTo": "/inicio",
     "open": false
   },
-   
+
   {
     "name": "Informacion Practicas",
     "icon": "help-circle",
@@ -35,15 +35,7 @@
         "icon": "document-text",
         "open": false
       }
-      
     ]
-  },
-  
-  {
-    "icon": "albums",
-    "name": "Otro Item",
-    "redirectTo": "/slides",
-    "open": false
   },
   {
     "name": "Gestion de Vinculación",

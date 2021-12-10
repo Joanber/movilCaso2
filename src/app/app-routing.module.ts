@@ -15,7 +15,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: './pages/login/login.module#LoginPageModule'
+    loadChildren: './pages/login/login.module#LoginPageModule',
+
+  },
+  {
+    path: "registro",
+    loadChildren: "./pages/registro/registro.module#RegistroPageModule"
   },
 
 
@@ -62,7 +67,9 @@ const routes: Routes = [
           import('./pages/gestion-vinculacion/historial-procesos/historial-procesos.module').then((m) => m.HistorialProcesosPageModule),
       },
     ]
-  }
+  },
+  { path: 'reporte', loadChildren: './pages/gestion-vinculacion/reporte/reporte.module#ReportePageModule' }
+
 ];
 @NgModule({
   imports: [

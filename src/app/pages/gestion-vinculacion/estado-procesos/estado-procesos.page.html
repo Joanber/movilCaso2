@@ -1,67 +1,72 @@
 <app-header titulo="Estado de Procesos"></app-header>
 
 <ion-content fullscreen>
-  <ion-list >
-    <ion-item  [color]="currentStyle.color"   >
-      <ion-label >
+  <ion-list>
+    <ion-item [color]="currentStyle.color">
+      <ion-label>
         Estado
       </ion-label>
-      <ion-select  [ngStyle]="currentStyle.style"  #selected placeholder="Seleccinar" [selectedText]="currentStatus" [value]="currentStatus" (ionChange)="statusChanged(selected.value)" >
+      <ion-select [ngStyle]="currentStyle.style" #selected placeholder="Seleccinar" [selectedText]="currentStatus" [value]="currentStatus" (ionChange)="statusChanged(selected.value)">
         <ion-select-option *ngFor="let estado of estados" [selected]="estado === currentStatus" [value]="estado">
-        {{estado}}
+          {{estado}}
         </ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
 
-<!-- <div *ngFor="let estado of status">
+  <!-- <div *ngFor="let estado of status">
   <ng-template [ngIf]="currentStatus.toLowerCase() === estado.name.toLowerCase()">
     <ion-badge  [ngStyle]="estado.style" item-end>{{estado.name.toUpperCase()}}</ion-badge>
   </ng-template>
 </div> -->
-<ion-list>
-  <ion-list-header>
-    Recent Conversations
-  </ion-list-header>
+  <ion-list>
+    <ion-list-header>
+      Recent Conversations
+    </ion-list-header>
 
-  <ion-item *ngFor='let proceso of procesos' >
-    <ion-avatar slot="start">
-    <ion-icon name="ellipse-outline"></ion-icon>
-    </ion-avatar>
+    <ion-list *ngIf='data'>
 
-    <ion-label>
-      <h2>{{proceso.id}}</h2>
-      <h3>{{proceso.carrera}}</h3>
-      <h3>{{proceso.convocatoriaId}}</h3>
-      <div *ngFor="let estado of status">
-        <ng-template [ngIf]="proceso.estado.toLowerCase() === estado.name.toLowerCase()">
-          <ion-badge [ngStyle]="estado.style" item-end>{{proceso.estado}}</ion-badge>
-        </ng-template>
-      </div>
-    </ion-label>
+      <ion-item *ngFor='let proceso of data' [routerLink]="'/reporte'">
+        <ion-thumbnail class="ion-margin-start">
+          <ion-icon name="ellipse-outline">
+          </ion-icon>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{proceso.id}}</h2>
+          <h3>{{proceso.carrera}}</h3>
+          <h3>{{proceso.convocatoriaId}}</h3>
+          <div *ngFor="let estado of status">
+            <ng-template [ngIf]="proceso.estado.toLowerCase() === estado.name.toLowerCase()">
+              <ion-badge [ngStyle]="estado.style" item-end>{{proceso.estado}}</ion-badge>
+            </ng-template>
+          </div>
+        </ion-label>
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-item>
 
-  </ion-item>
+    </ion-list>
+
+    <ion-list *ngIf='!data'>
+      <ion-item *ngFor='let fake of items' class='fakeItem' [routerLink]="'./estado/id'" routerDirection="root" routerLinkActive="active">
+        <ion-thumbnail class="ion-margin-start">
+          <ion-icon name="ellipse-outline">
+          </ion-icon>
+        </ion-thumbnail>
+        <ion-label>
+          <h2></h2>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 15%"></ion-skeleton-text>
+        </ion-label>
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-item>
+
+    </ion-list>
+
+
   </ion-list>
   <ion-list id="skeleton">
-    <ion-item  *ngFor='let item of items' [routerLink]="'./estado/id'" routerDirection="root" routerLinkActive="active">
-      <ion-thumbnail  class="ion-margin-start">
-        <ion-icon name="ellipse-outline" >
 
-        </ion-icon>
-
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
-        </p>
-      </ion-label>
-      <ion-icon name="chevron-forward"></ion-icon>
-    </ion-item>
   </ion-list>
 </ion-content>

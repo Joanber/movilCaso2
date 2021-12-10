@@ -1,0 +1,109 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button fill="clear" disabled="true">
+        <ion-icon slot="icon-only" name="null"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start" *ngIf="editable  == 1">
+      <ion-back-button defaultHref="/lista-ticket-usuario"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start" *ngIf="editable  != 1">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="editable  != 1" color="ista" class="ion-text-center"> Ingrese sus datos </ion-title>
+    <ion-title *ngIf="editable  == 1" color="ista" class="ion-text-center"> Editar perfil </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row class="ion-align-items-center">
+      <!-- Input-field-username -->
+      <ion-col *ngIf="editable  != 1" size="12" class="ion-text-center">
+        <ion-item>
+          <ion-label color="ista" position="floating">Cedula</ion-label>
+          <ion-input type="tel" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}"></ion-input>
+          <!-- <ion-label no-margin *ngIf="!isUsernameValid">{{data.errorUser}}</ion-label> -->
+        </ion-item>
+      </ion-col>
+
+      <ion-col *ngIf="editable  == 1" size="12" class="ion-text-center">
+        <ion-item>
+          <ion-label color="ista" position="floating">Cedula</ion-label>
+          <ion-input type="tel" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}"></ion-input>
+          <!-- <ion-label no-margin *ngIf="!isUsernameValid">{{data.errorUser}}</ion-label> -->
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center">
+        <ion-item>
+          <ion-label color="ista" position="floating">Nombres</ion-label>
+          <ion-input type="text" [(ngModel)]="nombres" [ngModelOptions]="{standalone: true}"></ion-input>
+          <!-- <ion-label no-margin *ngIf="!isUsernameValid">{{data.errorUser}}</ion-label> -->
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center">
+        <ion-item>
+          <ion-label color="ista" position="floating">Telefono</ion-label>
+          <ion-input type="tel" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}"></ion-input>
+          <!-- <ion-label no-margin *ngIf="!isUsernameValid">{{data.errorUser}}</ion-label> -->
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center">
+        <ion-item>
+          <ion-label color="ista" position="floating">Direccion</ion-label>
+          <ion-input type="text" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}"></ion-input>
+          <!-- <ion-label no-margin *ngIf="!isUsernameValid">{{data.errorUser}}</ion-label> -->
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center">
+        <form [formGroup]="todo">
+          <ion-item lines="full">
+            <ion-label color="ista" position="floating">Correo</ion-label>
+            <ion-input type="email" [(ngModel)]="email" formControlName="email" name="email"></ion-input>
+            <!-- <ion-label no-margin *ngIf="!isUsernameValid">{{data.errorUser}}</ion-label> -->
+          </ion-item>
+          <ion-item class="no-line error"
+            *ngIf="!todo.controls.email.valid  && (todo.controls.email.dirty || submitAttempt) && !todo.controls.email.pending">
+            <ion-label color="danger" ion-text *ngIf="todo.value.email != ''">El email no es valido</ion-label>
+          </ion-item>
+        </form>
+      </ion-col>
+
+      <ion-col size="12" class="ion-text-center">
+        <ion-item>
+          <ion-label color="ista" position="floating">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="contrasena" [type]="passwordType" clearOnEdit="false"
+            [ngModelOptions]="{standalone: true}">
+          </ion-input>
+          <ion-icon class="eyeIcon" slot="end" [name]="passwordIcon" (click)='hideShowPassword()' size="50">
+          </ion-icon>
+          <!-- <ion-label no-margin *ngIf="!isPasswordValid">{{data.errorPassword}}</ion-label> -->
+        </ion-item>
+      </ion-col>
+
+      <!-- Registrar button -->
+      <ion-col size="12" class="ion-text-center">
+        <ion-button *ngIf="editable  != 1" class="registrar-button" expand="full" shape="round" fill="outline"
+          color="ista" (click)="Validaciones()">
+          Registrarse
+        </ion-button>
+        <ion-button *ngIf="editable  == 1" class="registrar-button" expand="full" shape="round" fill="outline"
+          color="ista" (click)="Validaciones()">
+          Guardar
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- (click)="onEvent('onLogin')" -->

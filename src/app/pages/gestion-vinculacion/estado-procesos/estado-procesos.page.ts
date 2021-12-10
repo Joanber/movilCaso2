@@ -17,32 +17,28 @@ export class EstadoProcesosPage implements OnInit {
   currentStyle = { style: {}, name: '', color: '' };
   status: any[] = [];
 
-  procesos = [
-    { id: '1', estado: 'A tiempo', carrera: 'Tecnología superrior en desarrollo de software', convocatoriaId: 'A tiempo' },
-    { id: '2', estado: 'Fuera de tiempo', carrera: 'Tecnología Superior en Mecánica Industrial', convocatoriaId: 'A tiempo' },
-    { id: '3', estado: 'A tiempo', carrera: 'Tecnología en Desarrollo Infantil Integral', convocatoriaId: 'A tiempo' },
-    { id: '4', estado: 'Fuera de tiempo', carrera: 'Tecnología en Análisis de Sistemas', convocatoriaId: 'A tiempo' },
-    { id: '5', estado: 'A tiempo', carrera: 'Tecnología en Seguridad Penitenciaria', convocatoriaId: 'A tiempo' },
-    { id: '6', estado: 'Por cumplir el plazo', carrera: 'Tecnología Superior en Electricidad', convocatoriaId: 'A tiempo' },
-    { id: '7', estado: 'Por cumplir el plazo' },
-    { id: '8', estado: 'Fuera de tiempo' },
-    { id: '9', estado: 'A tiempo' },
-    { id: '10', estado: 'A tiempo' },
-    { id: '11', estado: 'Fuera de tiempo' },
-    { id: '12', estado: 'Por cumplir el plazo' },
-    { id: '13', estado: 'Fuera de tiempo' },
-    { id: '14', estado: 'A tiempo' },
-    { id: '15', estado: 'A tiempo' },
-    { id: '16', estado: 'Fuera de tiempo' },
-    { id: '17', estado: 'A tiempo' },
-    { id: '18', estado: 'Por cumplir el plazo' },
-    { id: '19', estado: 'Fuera de tiempo' }
-  ];
+  // procesos = [
+  //   { id: '1', estado: 'A tiempo', carrera: 'Tecnología superrior en desarrollo de software', convocatoriaId: '2' },
+  //   { id: '2', estado: 'Fuera de tiempo', carrera: 'Tecnología Superior en Mecánica Industrial', convocatoriaId: '3' },
+  //   { id: '3', estado: 'A tiempo', carrera: 'Tecnología en Desarrollo Infantil Integral', convocatoriaId: '5' },
+  //   { id: '4', estado: 'Fuera de tiempo', carrera: 'Tecnología en Análisis de Sistemas', convocatoriaId: '9' },
+  //   { id: '5', estado: 'A tiempo', carrera: 'Tecnología en Seguridad Penitenciaria', convocatoriaId: '8' },
+  //   { id: '6', estado: 'Por cumplir el plazo', carrera: 'Tecnología Superior en Electricidad', convocatoriaId: '6' }
+  // ];
 
   items = new Array(6); // solo hasta que se obtenga datos de la base
+  data: any;
 
   ngOnInit() {
     this.sharedService.status$.subscribe(status => this.status = status);
+    setTimeout(() => {
+      fetch('/assets/data/skeleton.json')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          this.data = data;
+        });
+    }, 2500);
   }
 
   statusChanged(value?: string) {
@@ -57,6 +53,25 @@ export class EstadoProcesosPage implements OnInit {
     return newColor;
   }
 
+  ionViewDidLoad() {
+    // Simulating network latency
+    // with a timeout
+    setTimeout(() => {
+      fetch('/assets/data/skeleton.json')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          this.data = data;
+        });
+    }, 2500);
+  }
+  // ionViewDidEnter() {
+  //   const result = from(this.sharedService.getSkeleton());
+  //   result.subscribe(x => console.log(x), e => console.error(e));
+  //   // setTimeout(() => {
+  //   //   fetch(this.sharedService.getSkeleton()).
+  //   // });
+  // }
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Estado',

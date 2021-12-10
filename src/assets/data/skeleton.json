@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "estado": "A tiempo",
+    "carrera": "Tecnología superrior en desarrollo de software",
+    "convocatoriaId": "ABC_123"
+  },
+  {
+    "id": "2",
+    "estado": "Fuera de tiempo",
+    "carrera": "Tecnología Superior en Mecánica Industrial",
+    "convocatoriaId": "CBA_124"
+  },
+  {
+    "id": "3",
+    "estado": "A tiempo",
+    "carrera": "Tecnología en Desarrollo Infantil Integral",
+    "convocatoriaId": "BAC_125"
+  },
+  {
+    "id": "4",
+    "estado": "Fuera de tiempo",
+    "carrera": "Tecnología en Análisis de Sistemas",
+    "convocatoriaId": "BCA_126"
+  },
+  {
+    "id": "5",
+    "estado": "A tiempo",
+    "carrera": "Tecnología en Seguridad Penitenciaria",
+    "convocatoriaId": "CBA_127"
+  },
+  {
+    "id": "6",
+    "estado": "Por cumplir el plazo",
+    "carrera": "Tecnología Superior en Electricidad",
+    "convocatoriaId": "CDE_128"
+  }
+]
