@@ -16,7 +16,7 @@ import { UtilsService } from './utils/utils.service';
 })
 export class AppComponent {
 
-tipo: any;
+
   componentes:Observable<Componente[]>
   constructor(
     private platform: Platform,
@@ -38,28 +38,4 @@ tipo: any;
       this.componentes=this.dataS.getMenuOpts()
     });
   
-
-
-    // private splashScreen: SplashScreen,
-    // private statusBar: StatusBar,
-  
-
-//componentes de login 
-    localStorage.setItem('userEditable', '1');
-    this.tipo = localStorage.getItem('TipoUsuario');
-    console.log('Tipo: ' + this.tipo);
-    this.initializeApp();
-  }
-
-  
-  init() {
-    localStorage.setItem('userEditable', '1');
-    this.tipo = localStorage.getItem('TipoUsuario');
-    console.log('Tipo: ' + this.tipo);
-  }
-
-  cambio() {
-    this.init();
-  }
-}
-  
+  }}
