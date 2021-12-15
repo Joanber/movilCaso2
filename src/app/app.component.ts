@@ -16,16 +16,35 @@ import { UtilsService } from './utils/utils.service';
 })
 export class AppComponent {
 
-
-  tipo: any;
+tipo: any;
+  componentes:Observable<Componente[]>
   constructor(
-    private utils: UtilsService,
     private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+      private utils: UtilsService,
+ //componentes de menu
+    private alertCrtl: AlertController,
+    private router: Router,
+    private dataS:DataService
+  ) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+      this.componentes=this.dataS.getMenuOpts()
+    });
+  
+
+
     // private splashScreen: SplashScreen,
     // private statusBar: StatusBar,
-    private alertCrtl: AlertController,
-    private router: Router
-  ) {
+  
+
+//componentes de login 
     localStorage.setItem('userEditable', '1');
     this.tipo = localStorage.getItem('TipoUsuario');
     console.log('Tipo: ' + this.tipo);
@@ -40,33 +59,5 @@ export class AppComponent {
   cambio(){
     this.ngOnInit();
   }
-  
-  async cerrarSesion() {
-    //  this.router.navigateByUrl('/home');
-    const toast = await this.alertCrtl.create({
-      header: 'Cerrar Sesion',
-      message: '¿Esta seguro de que desea cerrar sesion?',
-      //position: 'middle',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'no',
-          cssClass: 'light',
-          handler: () => {
-            console.log('cancel clicked');
-          },
-        },
-        {
-          text: 'Salir',
-          handler: () => {
-            localStorage.clear();
-            this.router.navigateByUrl('/login');
-            console.log('leave clicked');
-          },
-        },
-      ],
-    });
-    toast.present();
-  }
-
 }
+  

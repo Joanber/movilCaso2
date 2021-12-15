@@ -1,12 +1,15 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { UtilsService } from './../utils/utils.service';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { Usuario } from '../models/usuario.model';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
 
   constructor(private http: HttpClient, private toast:UtilsService) { }
     // url = 'http://localhost:9898';

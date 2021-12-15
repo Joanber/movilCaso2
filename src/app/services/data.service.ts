@@ -1,14 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
+import { Platform } from '@ionic/angular';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { delay } from "rxjs/operators";
 import { Componente } from '../interfaces/interfaces';
+
+//export interface Carrera{
+  //caId:number;
+  //name:string;
+  //coor:string;
+  //ppp:string;
+
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
   constructor(private http:HttpClient) { }
 
+
+
+  
   getUsers(){
     return this.http.get('https://jsonplaceholder.typicode.com/users')
   }
@@ -24,4 +39,5 @@ export class DataService {
 
     return this.http.get('/assets/data/superheroes.json').pipe(delay(2000))
   }
+
 }

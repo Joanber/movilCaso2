@@ -1,5 +1,19 @@
 <app-header titulo="Informacion de carrera"></app-header>
 
+<ion-content class="ion-padding">
+<ion-list>
+    <ion-item button *ngFor="let carrera of carreras" [routerLink]="['/page/informacion/info-carrera']">
+        <ion-label>
+            <h2>Carrera:: {{carrera.name}}</h2>
+            <p> Coordinador:: {{carrera.coor}}</p>
+            <p>res pp:: {{carrera.ppp}}</p>
+        </ion-label>
+    </ion-item>
+</ion-list>
+</ion-content>
+
+
+<!--
 
 <ion-content>
     <br>

@@ -14,11 +14,8 @@ const routes: Routes = [
     loadChildren: "./pages/slides/slides.module#SlidesPageModule",
   },
   { path: 'login',
-   loadChildren: './pages/login/login.module#LoginPageModule',
+   loadChildren: './pages/login/login.module#LoginPageModule'
 
-  },
-   { path: "registro",
-  loadChildren: "./pages/registro/registro.module#RegistroPageModule"
   },
    
 
@@ -44,6 +41,11 @@ const routes: Routes = [
           loadChildren: () =>
             import('./pages/informacion/info-carrera/info-carrera.module').then((m) => m.InfoCarreraPageModule),
           },
+          {
+            path: 'carrera',
+            loadChildren: () =>
+              import('./pages/informacion/carrera/carrera.module').then((m) => m.CarreraPageModule),
+            },
       ]
     },
 
@@ -65,7 +67,8 @@ const routes: Routes = [
           import('./pages/gestion-vinculacion/historial-procesos/historial-procesos.module').then((m) => m.HistorialProcesosPageModule),
       },
     ]
-  }
+  },
+  
 ]
 @NgModule({
   imports: [

@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,12 +13,22 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { PopinfoComponent } from './components/popinfo/popinfo.component';
 import { PipesModule } from './pipes/pipes.module';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [PopinfoComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ComponentsModule,HttpClientModule,PipesModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(),
+     AppRoutingModule,
+     ComponentsModule,
+     HttpClientModule,
+     ReactiveFormsModule,
+     FormsModule,
+     PipesModule],
   providers: [
+    DataService,
     StatusBar,
    SQLite,
    SQLitePorter,
