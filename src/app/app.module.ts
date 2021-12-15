@@ -33,7 +33,7 @@ import { DataService } from './services/data.service';
    SQLite,
    SQLitePorter,
     SplashScreen,
-     
+
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

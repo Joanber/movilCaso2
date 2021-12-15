@@ -68,8 +68,9 @@ const routes: Routes = [
       },
     ]
   },
-  
-]
+  { path: 'reporte', loadChildren: './pages/gestion-vinculacion/reporte/reporte.module#ReportePageModule' }
+
+];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),

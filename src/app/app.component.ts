@@ -48,16 +48,18 @@ tipo: any;
     localStorage.setItem('userEditable', '1');
     this.tipo = localStorage.getItem('TipoUsuario');
     console.log('Tipo: ' + this.tipo);
+    this.initializeApp();
   }
 
-  ngOnInit() {
+  
+  init() {
     localStorage.setItem('userEditable', '1');
     this.tipo = localStorage.getItem('TipoUsuario');
     console.log('Tipo: ' + this.tipo);
   }
 
-  cambio(){
-    this.ngOnInit();
+  cambio() {
+    this.init();
   }
 }
   
