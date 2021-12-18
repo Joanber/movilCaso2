@@ -10,20 +10,20 @@ import { Carrera, InfocarreraService } from 'src/app/services/infocarrera.servic
 })
 export class CarreraPage implements OnInit {
   carrera: Carrera = null;
+  id = '';
   constructor(private router: Router, private route: ActivatedRoute, private db: InfocarreraService, private toast: ToastController) { }
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      let caId = params.get('id');
-
-      this.db.getCarreraById(caId).then(data => {
+      this.id = params.get('id');
+      this.db.getCarrera(this.id).then(data => {
         this.carrera = data;
       });
     });
   }
 
   updateStudentData() {
-    this.db.updateCarrera(this.carrera).then(async (res) => {
-      let toast = await this.toast.create({
+    this.db.updateCarrera(this.id, this.carrera).then(async (res) => {
+      const toast = await this.toast.create({
         message: 'Student Details Updated Successfully..',
         duration: 3000
       });
@@ -31,8 +31,8 @@ export class CarreraPage implements OnInit {
     }).then(() => this.router.navigateByUrl('students'));
   }
   delete() {
-    console.log('Deleting Student Id '+this.carrera.caId);
-    this.db.deleteCarrera(this.carrera.caId).then(() => {
+    console.log('Deleting Student Id ' + this.carrera.id);
+    this.db.deleteCarrera(this.carrera.id).then(() => {
       this.router.navigateByUrl('students');
     });
   }

@@ -15,27 +15,25 @@ import { PopinfoComponent } from './components/popinfo/popinfo.component';
 import { PipesModule } from './pipes/pipes.module';
 import { DataService } from './services/data.service';
 
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [PopinfoComponent],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     IonicModule.forRoot(),
-     AppRoutingModule,
-     ComponentsModule,
-     HttpClientModule,
-     ReactiveFormsModule,
-     FormsModule,
-     PipesModule],
-  providers: [
+    AppRoutingModule,
+    ComponentsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    PipesModule],
+  providers: [SQLite, SQLitePorter,
     DataService,
     StatusBar,
-   SQLite,
-   SQLitePorter,
     SplashScreen,
-
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

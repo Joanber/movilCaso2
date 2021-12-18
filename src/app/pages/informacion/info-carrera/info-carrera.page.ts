@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Carrera, InfocarreraService } from 'src/app/services/infocarrera.service';
-
-//import { Carrera, DataService } from 'src/app/services/data.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { InfocarreraService } from 'src/app/services/infocarrera.service';
 
 @Component({
   selector: 'app-info-carrera',
@@ -9,29 +10,50 @@ import { Carrera, InfocarreraService } from 'src/app/services/infocarrera.servic
   styleUrls: ['./info-carrera.page.scss'],
 })
 export class InfoCarreraPage implements OnInit {
-  constructor(private db: InfocarreraService) { }
-  
-  carreraData = {};
-   carreras: Carrera[] = [];
-   ngOnInit() {
-     this.db.getDatabaseState().subscribe(rdy => {
-       if (rdy) {
-         this.db.getCarreras().subscribe(studs => {
-           this.carreras = studs;
-           console.log(this.carreras);
-         });
-       }
-     });
-   }
-   addCarreraDetails() {
-     this.db.addCarreraData(this.carreraData['name'], this.carreraData['class'], this.carreraData['mark']).then(_ => {
-       this.carreraData = {};
-     });
-   }
+  mainForm: FormGroup;
+  Data: any[] = [];
+
+  constructor(
+    private db: InfocarreraService,
+    public formBuilder: FormBuilder,
+    private toast: ToastController,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.db.dbState().subscribe((res) => {
+      if (res) {
+        this.db.fetchCarreras().subscribe(item => {
+          this.Data = item;
+        });
+      }
+    });
+
+    this.mainForm = this.formBuilder.group({
+      nombre: [''],
+      coor: [''],
+      ppp: ['']
+    });
   }
 
+  storeData() {
+    this.db.addCarrera(
+      this.mainForm.value.nombre,
+      this.mainForm.value.coor,
+      this.mainForm.value.ppp
+    ).then((res) => {
+      this.mainForm.reset();
+    });
+  }
 
+  deleteCarrera(id) {
+    this.db.deleteCarrera(id).then(async (res) => {
+      const toast = await this.toast.create({
+        message: 'Eliminado',
+        duration: 2500
+      });
+      toast.present();
+    });
+  }
 
-
-  
-  
+}

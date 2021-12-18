@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-
-import { InfoCarreraPage } from './info-carrera.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { InfoCarreraPage } from './info-carrera.page';
+
 
 const routes: Routes = [
   {
@@ -19,8 +18,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes),ComponentsModule
+    IonicModule, ReactiveFormsModule,
+    RouterModule.forChild(routes), ComponentsModule
   ],
   declarations: [InfoCarreraPage]
 })
