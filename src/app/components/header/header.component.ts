@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, NgModule } from '@angular/core';
+import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { PopinfoComponent } from '../popinfo/popinfo.component';
 
 @Component({
@@ -10,7 +12,7 @@ import { PopinfoComponent } from '../popinfo/popinfo.component';
 export class HeaderComponent implements OnInit {
   @Input() titulo:string;
   
-  constructor( private popoverCtrl: PopoverController ) { }
+  constructor( private popoverCtrl: PopoverController, public usuarioService: UsuarioService, private router: Router ) { }
 
   ngOnInit() {
   }
@@ -31,6 +33,13 @@ export class HeaderComponent implements OnInit {
 
 
   }
+  logout() {
+    this.usuarioService.logout();
+    this.router.navigate(["/login"]);
+  }
+
+
+
 
 }
 

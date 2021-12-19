@@ -6,7 +6,8 @@ import { AlertController, Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Componente } from './interfaces/interfaces';
 import { DataService } from './services/data.service';
-import { UtilsService } from './utils/utils.service';
+import { UsuarioService } from './services/usuario.service';
+
 
 
 @Component({
@@ -22,7 +23,9 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-      private utils: UtilsService,
+    private usuarioService: UsuarioService,
+    
+    
  //componentes de menu
     private alertCrtl: AlertController,
     private router: Router,
@@ -30,6 +33,13 @@ export class AppComponent {
   ) {
     this.initializeApp();
   }
+  
+
+logout() {
+  this.usuarioService.logout();
+  this.router.navigate(["/login"]);
+}
+
 
   initializeApp() {
     this.platform.ready().then(() => {

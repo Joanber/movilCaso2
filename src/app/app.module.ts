@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
 import { ComponentsModule } from './components/components.module';
 import { PopinfoComponent } from './components/popinfo/popinfo.component';
 import { PipesModule } from './pipes/pipes.module';
@@ -27,8 +28,11 @@ import { DataService } from './services/data.service';
     ComponentsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AuthModule,
+    
     FormsModule,
     PipesModule],
+
   providers: [SQLite, SQLitePorter,
     DataService,
     StatusBar,
