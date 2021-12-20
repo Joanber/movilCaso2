@@ -9,15 +9,28 @@
         <ion-item>
             <ion-icon name="document-text-outline"></ion-icon>
           <ion-label>CARRERA : {{convocatoria.carrera.abreviatura}}</ion-label>
-          <ion-button fill="outline" slot="end">View</ion-button>
+         
         </ion-item>
       
         <ion-card-content>
-         Nom. Empresa : {{convocatoria.solicitudEmpresa.empresa.nombre}}
+          <ion-icon name="business-outline"></ion-icon>
+         EMPRESA  : {{convocatoria.solicitudEmpresa.empresa.nombre}}
+         
         </ion-card-content>
-      
+        <ion-card-content>
+          ACTIVIDADES A DESARROLAR : {{convocatoria.actividades}}
+          </ion-card-content>
       <ion-card-content>
-        {{convocatoria.actividades}}
+       MATERIAS APROB : {{convocatoria.asignaturas}}
        </ion-card-content>
+       <ion-card-content>
+        FECHA MAX ENVIAR SOLICITUD : {{convocatoria.fecha_max_recib_solic}}
+        </ion-card-content>
+        <ion-card-content>
+          FECHA INICIO : {{convocatoria.solicitudEmpresa.fecha_inicio}}
+          </ion-card-content>
+          <ion-card-content>
+            Nº ALUMNOS : {{convocatoria.solicitudEmpresa.numero_alumnos}}
+            </ion-card-content>
      </ion-card>
 </ion-content>
