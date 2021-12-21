@@ -3,9 +3,42 @@
 <h5>Consultar por carrrera y fecha</h5>
 
 <ion-content>
-    <ion-searchbar></ion-searchbar>
+  
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="12">
+        <ion-toolbar *ngIf="fechaSelected == 1">
+          <ion-searchbar placeholder='{{defectSelect}}' animated showcancelbutton="" (ionChange)="buscar($event)">
+          </ion-searchbar>
+          <ion-buttons slot="primary">
+            <ion-button (click)="filtroButton()">
+              <ion-icon color="ista" slot="icon-only" name="settings-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <ion-toolbar *ngIf="fechaSelected == 2">
+          <ion-item>
+            <ion-label>Escoja una fecha </ion-label>
+            <ion-datetime display-format="MMM DD, YYYY" picker-format="MMM DD, YYYY" value="{{fecha}}" animated
+              (ionChange)="buscarFecha($event)"></ion-datetime>
+          </ion-item>
+          <ion-buttons slot="primary">
+            <ion-button (click)="filtroButton()">
+              <ion-icon color="ista" slot="icon-only" name="settings-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+
+
 
     <ion-card *ngFor="let convocatoria of convocatoria">
+    
+   <!--|convo: textoBusqueda:tipoServicio">--> 
         <ion-item>
             <ion-icon name="document-text-outline"></ion-icon>
           <ion-label>CARRERA : {{convocatoria.carrera.abreviatura}}</ion-label>
