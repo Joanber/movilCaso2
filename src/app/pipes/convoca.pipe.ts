@@ -15,13 +15,13 @@ export class ConvocaPipe implements PipeTransform {
   texto=texto.toString().toLowerCase().trim();
   if(data=="abreviatura"){
     return arreglo.filter(item=>{
-      return item.convocatoria.empresa.abreviatura.toString().includes(texto) ;
+      return item.carrera.abreviatura.toLowerCase().trim().includes(texto);
    })
   } 
   
-  if(data=="fecha"){
+  if(data=="fecha_max_recib_solic"){
     return arreglo.filter(item=>{
-      return item.convocatoria.solicitudEmpresa.fecha_max_recib_solic.split('T')[0].includes(texto);
+      return item.fecha_max_recib_solic.split('T')[0].includes(texto);
    })
 
 }

@@ -1,9 +1,9 @@
-<app-header titulo="Consulta Convocatoria"></app-header>
+<app-header titulo="Convocatorias"></app-header>
 
-<h5>Consultar por carrrera y fecha</h5>
+
 
 <ion-content>
-  
+  <h5>Consultar por carrrera y fecha</h5>
   <ion-grid>
     <ion-row class="ion-align-items-center">
       <ion-col size="12">
@@ -36,7 +36,7 @@
 
 
 
-    <ion-card *ngFor="let convocatoria of convocatoria">
+    <ion-card *ngFor="let convocatoria of convocatoria | convoca: textoBusqueda:tipoServicio ">
     
    <!--|convo: textoBusqueda:tipoServicio">--> 
         <ion-item>

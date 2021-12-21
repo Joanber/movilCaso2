@@ -6,7 +6,7 @@ import { ConvocaPipe } from './convoca.pipe';
 
 @NgModule({
   declarations: [FiltroPipe, ConvocaPipe],
-  exports:[FiltroPipe],
+  exports:[FiltroPipe, ConvocaPipe],
   
 })
 export class PipesModule { }

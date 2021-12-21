@@ -15,9 +15,10 @@ export class ConvocatoriaPage implements OnInit {
   textoBusqueda:string='';
   fechaSelected: any = 1;
   fecha: string = new Date().toISOString();
-  tipoServicio:string='abreviatura';
+  tipoServicio:string='id';
   defectSelect:string="Buscar ";
-  codTipo: any;
+  
+  
   public convocatoria: Convocatoria[] = [];
 
   constructor(private convocatoriaService: ConvocatoriaService, private alertCtrl: AlertController) {}
@@ -33,7 +34,7 @@ export class ConvocatoriaPage implements OnInit {
       console.log(this.convocatoria);
     });
   }
-  buscar(event: { detail: { value: any; }; }){
+  buscar(event){
     this.textoBusqueda=event.detail.value;
   }
 
@@ -78,7 +79,7 @@ export class ConvocatoriaPage implements OnInit {
               this.fechaSelected = 1;
             }
            
-            if(data==="fecha_emision"){
+            if(data==="fecha_max_recib_solic"){
               this.tipoServicio='fecha_max_recib_solic';
               this.defectSelect="Ingrese una fecha";
               this.fechaSelected = 2;
