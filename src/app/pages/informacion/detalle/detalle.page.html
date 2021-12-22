@@ -1,0 +1,49 @@
+
+
+  <ion-content fullscreen class="component-content">
+    <ion-card  *ngFor="let convocatoria of convocatoria">
+    
+      <ion-card-header >
+      
+        <ion-card-title>{{convocatoria.carrera.nombre}}</ion-card-title>
+        <br>
+
+        <ion-card-subtitle> Empresa :{{convocatoria.solicitudEmpresa.empresa.nombre}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Fecha de emision:{{convocatoria.fecha_emision}} 
+      </ion-card-content>
+      
+      <ion-card-content>
+        Estudiantes de :{{convocatoria.ciclo}} ciclo
+      </ion-card-content>
+      <ion-card-content>
+       Actividades a desarrollar : {{convocatoria.actividades}}
+      </ion-card-content>
+      <ion-card-content>
+      Asignaturas aprobadas :  {{convocatoria.asignaturas}}
+      </ion-card-content>
+
+      <ion-card-content>
+       Fecha maxima de recibo solicitud: {{convocatoria.fecha_max_recib_solic}}
+      </ion-card-content>
+      
+      <ion-card-content>
+      Fecha de inicio :  {{convocatoria.solicitudEmpresa.fecha_inicio}}
+      </ion-card-content>
+      <ion-card-content>
+       Numeros de alumnos pedidos : {{convocatoria.solicitudEmpresa.numero_alumnos}}
+      </ion-card-content>
+      <ion-card-content>
+       Responsable de PPP : {{convocatoria.solicitudEmpresa.responsablePPP.docente.persona.primer_nombre}}{{convocatoria.solicitudEmpresa.responsablePPP.docente.persona.primer_apellido}}
+      </ion-card-content>
+      <ion-card-content>
+       observaciones : {{convocatoria.solicitudEmpresa.observacion}}
+      </ion-card-content>
+
+
+    </ion-card>
+          <div class="ion-padding-start ion-padding-end">
+            <ion-button expand="block" onClick={this.open}>Descargar</ion-button>
+          </div>
+      </ion-content>

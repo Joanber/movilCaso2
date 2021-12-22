@@ -61,6 +61,13 @@ const routes: Routes = [
             (m) => m.CarreraPageModule
           ),
       },
+      { 
+        path: 'detalle', 
+      loadChildren:()=>
+      import("./pages/informacion/detalle/detalle.module").then(
+        (m) => m.DetallePageModule
+      ) },
+
     ],
   },
 
@@ -88,6 +95,7 @@ const routes: Routes = [
             "./pages/gestion-vinculacion/historial-procesos/historial-procesos.module"
           ).then((m) => m.HistorialProcesosPageModule),
       },
+
     ],
   },
   {
@@ -95,6 +103,7 @@ const routes: Routes = [
     loadChildren:
       "./pages/gestion-vinculacion/reporte/reporte.module#ReportePageModule",
   },
+  
 ];
 @NgModule({
   imports: [
