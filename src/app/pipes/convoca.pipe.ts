@@ -13,9 +13,9 @@ export class ConvocaPipe implements PipeTransform {
   console.log(data);
   
   texto=texto.toString().toLowerCase().trim();
-  if(data=="abreviatura"){
+  if(data=="nombre"){
     return arreglo.filter(item=>{
-      return item.carrera.abreviatura.toLowerCase().trim().includes(texto);
+      return item.carrera.nombre.toLowerCase().trim().includes(texto);
    })
   } 
   

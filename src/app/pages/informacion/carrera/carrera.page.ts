@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Carrera, InfocarreraService } from 'src/app/services/infocarrera.service';
@@ -9,31 +10,50 @@ import { Carrera, InfocarreraService } from 'src/app/services/infocarrera.servic
   styleUrls: ['./carrera.page.scss'],
 })
 export class CarreraPage implements OnInit {
-  carrera: Carrera = null;
-  id = '';
-  constructor(private router: Router, private route: ActivatedRoute, private db: InfocarreraService, private toast: ToastController) { }
+  mainForm: FormGroup;
+  Data: any[] = [];
+
+  constructor(
+    private db: InfocarreraService,
+    public formBuilder: FormBuilder,
+    private toast: ToastController,
+    private router: Router
+  ) {}
+
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
-      this.db.getCarrera(this.id).then(data => {
-        this.carrera = data;
-      });
+    this.db.dbState().subscribe((res) => {
+      if (res) {
+        this.db.fetchCarreras().subscribe(item => {
+          this.Data = item;
+        });
+      }
+    });
+
+    this.mainForm = this.formBuilder.group({
+      nombre: [''],
+      coor: [''],
+      ppp: ['']
     });
   }
 
-  updateStudentData() {
-    this.db.updateCarrera(this.id, this.carrera).then(async (res) => {
-      const toast = await this.toast.create({
-        message: 'Student Details Updated Successfully..',
-        duration: 3000
-      });
-      toast.present();
-    }).then(() => this.router.navigateByUrl('students'));
-  }
-  delete() {
-    console.log('Deleting Student Id ' + this.carrera.id);
-    this.db.deleteCarrera(this.carrera.id).then(() => {
-      this.router.navigateByUrl('students');
+  storeData() {
+    this.db.addCarrera(
+      this.mainForm.value.nombre,
+      this.mainForm.value.coor,
+      this.mainForm.value.ppp
+    ).then((res) => {
+      this.mainForm.reset();
     });
   }
+
+  deleteCarrera(id) {
+    this.db.deleteCarrera(id).then(async (res) => {
+      const toast = await this.toast.create({
+        message: 'Eliminado',
+        duration: 2500
+      });
+      toast.present();
+    });
+  }
+
 }

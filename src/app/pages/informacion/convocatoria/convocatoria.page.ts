@@ -34,6 +34,13 @@ export class ConvocatoriaPage implements OnInit {
       console.log(this.convocatoria);
     });
   }
+
+detalle(id:number){
+
+
+  
+}
+
   buscar(event){
     this.textoBusqueda=event.detail.value;
   }
@@ -50,13 +57,13 @@ export class ConvocatoriaPage implements OnInit {
        
         {
           type: 'radio',
-          label: 'Nombre',
-          value: 'abreviatura'
+          label: 'Nombre Carrera',
+          value: 'nombre'
         },
         
         {
           type: 'radio',
-          label: 'Fecha',
+          label: 'Fecha maxima de envio solicitud ',
           value: 'fecha_max_recib_solic'
         },
       
@@ -73,9 +80,9 @@ export class ConvocatoriaPage implements OnInit {
           handler: (data: any) => {
             this.textoBusqueda='';
             
-            if(data==="abreviatura"){
-              this.tipoServicio="abreviatura";
-              this.defectSelect="Ingrese el nombre";
+            if(data==="nombre"){
+              this.tipoServicio="nombre";
+              this.defectSelect="Ingrese el nombre de carrera";
               this.fechaSelected = 1;
             }
            

@@ -1,50 +1,42 @@
 <app-header titulo="Informacion de carrera"></app-header>
-<ion-content class="ion-padding">
 
-    <ion-content>
-        <ion-list lines="full">
-            <form [formGroup]="mainForm" (ngSubmit)="storeData()">
-                <ion-item>
-                    <ion-label position="floating">Nombre </ion-label>
-                    <ion-input formControlName="nombre" type="text" required></ion-input>
-                </ion-item>
+<ion-content>
+<ion-card *ngFor="let carrera of carrera ">
+    <img  height="45" class="ion-margin-end" src="/assets/icon/ISTA_02.svg">
+ 
+    <ion-item>
+     
+          <ion-icon name="document-text-outline"></ion-icon>
+        <ion-label >Carrera :{{carrera.responsablePPP.carrera.nombre}}</ion-label>
+      </ion-item>
+      <ion-card-content >
+     Modalidad : {{carrera.responsablePPP.carrera.modalidad}}
+        </ion-card-content>      
+      <ion-card-content>
+        
+        : {{carrera.responsablePPP.carrera.docente.abreviatura_titulo}}
+      </ion-card-content>
+ 
+     <ion-card-content>
+    : {{carrera.responsablePPP.carrera.docente.persona.primer_nombre}}
+      </ion-card-content>
+      <ion-card-content>
+        : {{carrera.responsablePPP.carrera.docente.persona.segundo_apellido}}
+          </ion-card-content>
+          <ion-card-content>
+            : {{carrera.responsablePPP.docente.abreviatura_titulo}}
+              </ion-card-content>
+              <ion-card-content>
+                : {{carrera.responsablePPP.docente.persona.primer_nombre}}
+                  </ion-card-content>
 
-                <ion-item>
-                    <ion-label position="floating">cordinador</ion-label>
-                    <ion-input formControlName="coor" type="text" required>
-                    </ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label position="floating">responsable</ion-label>
-                    <ion-input formControlName="ppp" type="text" required>
-                    </ion-input>
-                </ion-item>
-                <ion-row>
-                    <ion-col>
-                        <ion-button type="submit" color="primary" shape="full" expand="block">
-                            Add Carrera
-                        </ion-button>
-                    </ion-col>
-                </ion-row>
-            </form>
-        </ion-list>
+                  <ion-card-content>
+                    : {{carrera.responsablePPP.docente.persona.primer_apellido}}
+                      </ion-card-content>
+                      <ion-card-content>
+                        : {{carrera.empresa.nombre}}
+                          </ion-card-content>
+      <ion-button  >Ver</ion-button>
 
-        <ion-list>
-            <ion-list-header>
-                Carreras
-            </ion-list-header>
-
-            <ion-item lines="inset" *ngFor="let data of Data">
-                <ion-label>
-                    <h5>{{data.nombre}}</h5>
-                    <p>{{data.coor}}</p>
-                    <p>{{data.ppp}}</p>
-                </ion-label>
-
-                <div class="item-note" item-end>
-                    <ion-icon name="create" style="zoom:2.0" [routerLink]="['/carrera/', data.id]"></ion-icon>
-                    <ion-icon name="trash" style="zoom:2.0" (click)="deleteCarrera(data.id)"></ion-icon>
-                </div>
-            </ion-item>
-        </ion-list>
-    </ion-content>
+   </ion-card>
+</ion-content>

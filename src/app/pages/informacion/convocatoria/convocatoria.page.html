@@ -1,9 +1,8 @@
 <app-header titulo="Convocatorias"></app-header>
 
-
-
-<ion-content>
-  <h5>Consultar por carrrera y fecha</h5>
+<ion-content fullscreen class="component-content">
+  <h5 style="text-align: center;">Consultar Convocatoria</h5>
+  <h5 style="text-align: center;">por carrera y fecha.</h5>
   <ion-grid>
     <ion-row class="ion-align-items-center">
       <ion-col size="12">
@@ -31,39 +30,27 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  
-
-
-
-
+ 
     <ion-card *ngFor="let convocatoria of convocatoria | convoca: textoBusqueda:tipoServicio ">
-    
-   <!--|convo: textoBusqueda:tipoServicio">--> 
-        <ion-item>
+      <img  height="45" class="ion-margin-end" src="/assets/icon/ISTA_02.svg">
+   
+      <ion-item>
+       
             <ion-icon name="document-text-outline"></ion-icon>
-          <ion-label>CARRERA : {{convocatoria.carrera.abreviatura}}</ion-label>
-         
+          <ion-label >Convocatoria :{{convocatoria.carrera.abreviatura}}</ion-label>
         </ion-item>
-      
+        <ion-card-content >
+       Carrera : {{convocatoria.carrera.nombre}}
+          </ion-card-content>      
         <ion-card-content>
-          <ion-icon name="business-outline"></ion-icon>
-         EMPRESA  : {{convocatoria.solicitudEmpresa.empresa.nombre}}
-         
+          
+         Empresa : {{convocatoria.solicitudEmpresa.empresa.nombre}}
         </ion-card-content>
-        <ion-card-content>
-          ACTIVIDADES A DESARROLAR : {{convocatoria.actividades}}
-          </ion-card-content>
-      <ion-card-content>
-       MATERIAS APROB : {{convocatoria.asignaturas}}
-       </ion-card-content>
+   
        <ion-card-content>
         FECHA MAX ENVIAR SOLICITUD : {{convocatoria.fecha_max_recib_solic}}
         </ion-card-content>
-        <ion-card-content>
-          FECHA INICIO : {{convocatoria.solicitudEmpresa.fecha_inicio}}
-          </ion-card-content>
-          <ion-card-content>
-            Nº ALUMNOS : {{convocatoria.solicitudEmpresa.numero_alumnos}}
-            </ion-card-content>
+        <ion-button  >Ver</ion-button>
+ 
      </ion-card>
 </ion-content>
