@@ -1,9 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AlertController, NavController } from "@ionic/angular";
+import { AlertController, ModalController, NavController } from "@ionic/angular";
 import { Convocatoria } from "src/app/models/convocatoria.model";
 import { ConvocatoriaService } from "src/app/services/convocatoria.service";
 import { environment } from "src/environments/environment";
+import { Router } from '@angular/router';
+import { DetallePage } from "../detalle/detalle.page";
+import { HttpClient } from "@angular/common/http";
 
 
 @Component({
@@ -21,7 +24,20 @@ export class ConvocatoriaPage implements OnInit {
   
   public convocatoria: Convocatoria[] = [];
 
-  constructor(private convocatoriaService: ConvocatoriaService, private alertCtrl: AlertController) {}
+  constructor(private http:HttpClient, private convocatoriaService: ConvocatoriaService, public navCtrl : NavController, public modalCtrl: ModalController,   private alertCtrl: AlertController,   private router: Router) {}
+
+
+
+  async mostrar(convocatoria){
+   const modal = await this.modalCtrl.create({component: DetallePage ,componentProps:{
+     convocatoria:this.convocatoria[convocatoria],
+   }});
+   return await modal.present();
+
+
+  }
+
+
 
   ngOnInit(): void {
     this.getConvocatorias();
@@ -35,10 +51,21 @@ export class ConvocatoriaPage implements OnInit {
     });
   }
 
-detalle(id:number){
-
-
-  
+cargarConvocatoriaById(id: number) {
+  if (!id) {
+    return;
+  }
+  this.convocatoriaService
+    .getConvocatoriaById(id)
+    .subscribe((convocatoria) => {
+      if (!convocatoria) {
+        return this.irListaConvocatorias();
+      }
+      
+    });
+}
+irListaConvocatorias() {
+  this.router.navigateByUrl("/informacion/convocatoria");
 }
 
   buscar(event){

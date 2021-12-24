@@ -31,7 +31,7 @@
     </ion-row>
   </ion-grid>
  
-    <ion-card *ngFor="let convocatoria of convocatoria | convoca: textoBusqueda:tipoServicio ">
+    <ion-card *ngFor="let convocatoria of convocatoria | convoca: textoBusqueda:tipoServicio; let i = convocatoria;"  (click)="mostrar(i)">
       <img  height="45" class="ion-margin-end" src="/assets/icon/ISTA_02.svg">
    
       <ion-item>

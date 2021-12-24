@@ -14,4 +14,8 @@ export class ConvocatoriaService {
   getConvocatorias(): Observable<Convocatoria[]> {
     return this.http.get<Convocatoria[]>(`${bd_url}/filtrar`);
   }
+  //OBTENER UNA CONVOCATORIA POR ID
+  getConvocatoriaById(id: number): Observable<Convocatoria> {
+    return this.http.get<Convocatoria>(`${bd_url}/${id}`);
+  }
 }
