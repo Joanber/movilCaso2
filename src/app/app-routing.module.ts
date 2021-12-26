@@ -61,12 +61,12 @@ const routes: Routes = [
             (m) => m.CarreraPageModule
           ),
       },
-      { 
-        path: 'detalle', 
-      loadChildren:()=>
-      import("./pages/informacion/detalle/detalle.module").then(
-        (m) => m.DetallePageModule
-      ) },
+      //{ 
+      //  path: 'detalle', 
+      //loadChildren:()=>
+      //import("./pages/informacion/detalle/detalle.module").then(
+        //(m) => m.DetallePageModule
+    //  ) },
 
     ],
   },

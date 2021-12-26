@@ -10,14 +10,18 @@ import { ConvocatoriaService } from 'src/app/services/convocatoria.service';
   styleUrls: ['./detalle.page.scss'],
 })
 export class DetallePage implements OnInit {
-  @Input() convocatoria: object;
- // public convocatoria: Convocatoria[] = [];
+  @Input() id;
+ //public convocatoria: Convocatoria[] = [];
+convocatoria: Convocatoria;
+  constructor(private convocatoriaService: ConvocatoriaService, private modalCtrl: ModalController) {}
 
-  constructor(private modalCtrl: ModalController) {}
 
-
-  ngOnInit(): void {
-   // this.getDetalle();
+  ngOnInit() {
+ //console.log('ID', this.id)
+ this.convocatoriaService.getConvocatoriaById(this.id)
+ .subscribe(resp =>  {//console.log(resp);
+  this.convocatoria = resp;
+ });
   }
 
   dismiss(){
@@ -25,14 +29,5 @@ export class DetallePage implements OnInit {
   }
 
 
-/** 
-  getDetalle() {
-    this.convocatoriaService.getConvocatorias().subscribe((convocatoria) => {
-      this.convocatoria = convocatoria;
-
-      console.log(this.convocatoria);
-    });
-  }
-*/
 
 }

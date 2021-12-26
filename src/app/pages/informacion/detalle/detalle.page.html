@@ -1,8 +1,10 @@
 <app-header titulo="Convocatorias"></app-header>
 
+
   <ion-content fullscreen class="component-content">
-    
-    <ion-button (click)="dismiss()"></ion-button>
+    <ion-button (click)="dismiss()" style="width:300px;">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
       <ion-card-header >
       
         <ion-card-title>{{convocatoria.carrera.nombre}}</ion-card-title>
@@ -41,9 +43,5 @@
        observaciones : {{convocatoria.solicitudEmpresa.observacion}}
       </ion-card-content>
 
-
-    
-          <div class="ion-padding-start ion-padding-end">
-            <ion-button expand="block" onClick={this.open}>Descargar</ion-button>
-          </div>
+     
       </ion-content>

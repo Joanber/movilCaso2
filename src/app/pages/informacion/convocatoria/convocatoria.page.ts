@@ -28,11 +28,13 @@ export class ConvocatoriaPage implements OnInit {
 
 
 
-  async mostrar(convocatoria){
-   const modal = await this.modalCtrl.create({component: DetallePage ,componentProps:{
-     convocatoria:this.convocatoria[convocatoria],
+  async verDetalle(id: number){
+   const modal = await this.modalCtrl.create({
+     component: DetallePage,
+     componentProps:{
+    id
    }});
-   return await modal.present();
+ modal.present();
 
 
   }

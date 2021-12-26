@@ -16,6 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents:[DetallePage],
   imports: [
     CommonModule,
     FormsModule,

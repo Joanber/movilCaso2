@@ -31,7 +31,7 @@
     </ion-row>
   </ion-grid>
  
-    <ion-card *ngFor="let convocatoria of convocatoria | convoca: textoBusqueda:tipoServicio; let i = convocatoria;"  (click)="mostrar(i)">
+    <ion-card *ngFor="let convocatoria of convocatoria | convoca: textoBusqueda:tipoServicio">
       <img  height="45" class="ion-margin-end" src="/assets/icon/ISTA_02.svg">
    
       <ion-item>
@@ -50,7 +50,7 @@
        <ion-card-content>
         FECHA MAX ENVIAR SOLICITUD : {{convocatoria.fecha_max_recib_solic}}
         </ion-card-content>
-        <ion-button  >Ver</ion-button>
+        <ion-button (click)="verDetalle(convocatoria.id)">Ver</ion-button>
  
      </ion-card>
 </ion-content>

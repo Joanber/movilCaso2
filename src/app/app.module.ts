@@ -13,6 +13,7 @@ import { AppComponent } from "./app.component";
 import { AuthModule } from "./auth/auth.module";
 import { ComponentsModule } from "./components/components.module";
 import { PopinfoComponent } from "./components/popinfo/popinfo.component";
+import { DetallePageModule } from "./pages/informacion/detalle/detalle.module";
 import { PipesModule } from "./pipes/pipes.module";
 import { DataService } from "./services/data.service";
 import { TokenInterceptor } from "./services/interceptores/token-interceptor.service";
@@ -20,6 +21,7 @@ import { TokenInterceptor } from "./services/interceptores/token-interceptor.ser
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [PopinfoComponent],
+  
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -28,7 +30,7 @@ import { TokenInterceptor } from "./services/interceptores/token-interceptor.ser
     HttpClientModule,
     ReactiveFormsModule,
     AuthModule,
-
+DetallePageModule,
     FormsModule,
     PipesModule,
   ],
