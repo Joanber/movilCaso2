@@ -1,9 +1,5 @@
 <app-header titulo="Consultar Procesos"></app-header>
 
-
-
-
-<br>
 <ion-content>
     <ion-item>
 
@@ -14,30 +10,22 @@
             
         </ion-select>
     </ion-item>
-    <br>
-
-    <ion-row style="border-bottom: groove;">
-        <ion-col col-2>
-            <ion-label>ESTADO</ion-label>
-        </ion-col>
-        <ion-col col-4>
-            <ion-label>EMPRESA</ion-label>
-        </ion-col>
-        <ion-col col-4>
-            <ion-label>CARRERA</ion-label>
-        </ion-col>
-    </ion-row>
-    <br>
-    <ion-row style="border-bottom: groove;" *ngFor="let procesos of procesos">
-        <ion-col col-2>
-            <ion-label>{{procesos.estado}}}</ion-label>
-        </ion-col>
-        <ion-col col-4>
-            <ion-label>{{procesos.solicitudEmpresa.empresa.nombre}}</ion-label>
-        </ion-col>
-        <ion-col col-4>
-            <ion-label>{{procesos.carrera.abreviatura}}</ion-label>
-        </ion-col>
-    </ion-row>
+    <ion-card *ngFor="let procesos of procesos">
+        <ion-item>
+            <ion-icon name="stats-chart-outline"></ion-icon>
+          <ion-label>ESTADO</ion-label>
+          <ion-label>{{procesos.estado}}</ion-label>
+        </ion-item>
+      
+        <ion-card-content>
+          EMPRESA : {{procesos.solicitudEmpresa.empresa.nombre}}
+        </ion-card-content>
+        <ion-card-content>
+        CARRERA : {{procesos.carrera.nombre}}
+          </ion-card-content>
+          <ion-card-content>
+        RESPONSABLE : {{procesos.solicitudEmpresa.responsablePPP.docente.abreviatura}} {{procesos.solicitudEmpresa.responsablePPP.docente.persona.primer_nombre}}  {{procesos.solicitudEmpresa.responsablePPP.docente.persona.primer_apellido}}
+              </ion-card-content>
+      </ion-card>
     
 </ion-content>

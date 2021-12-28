@@ -1,16 +1,19 @@
-<app-header titulo="Convocatorias"></app-header>
+
 
 
   <ion-content fullscreen class="component-content">
-    <ion-button (click)="dismiss()" style="width:300px;">
+    
+    <ion-button expand="full" shape="round" fill="outline" size="small"  (click)="dismiss()">
       <ion-icon name="close-outline"></ion-icon>
     </ion-button>
-      <ion-card-header >
+   
+      <ion-card-header *ngIf="convocatoria">
       
-        <ion-card-title>{{convocatoria.carrera.nombre}}</ion-card-title>
+        <ion-card-title style="text-align: center;">{{convocatoria.carrera?.nombre}}</ion-card-title>
+        <img  height="45" class="ion-margin-end"  align="right" src="/assets/icon/ISTA_02.svg">
         <br>
-
-        <ion-card-subtitle> Empresa :{{convocatoria.solicitudEmpresa.empresa.nombre}}</ion-card-subtitle>
+ <br>
+        <ion-card-subtitle> Empresa :{{convocatoria.solicitudEmpresa?.empresa.nombre}}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         Fecha de emision:{{convocatoria.fecha_emision}} 
@@ -19,8 +22,10 @@
       <ion-card-content>
         Estudiantes de :{{convocatoria.ciclo}} ciclo
       </ion-card-content>
+     
       <ion-card-content>
-       Actividades a desarrollar : {{convocatoria.actividades}}
+        Actividades a desarrollar :
+       {{convocatoria.actividades}}
       </ion-card-content>
       <ion-card-content>
       Asignaturas aprobadas :  {{convocatoria.asignaturas}}
@@ -31,16 +36,16 @@
       </ion-card-content>
       
       <ion-card-content>
-      Fecha de inicio :  {{convocatoria.solicitudEmpresa.fecha_inicio}}
+      Fecha de inicio :  {{convocatoria.solicitudEmpresa?.fecha_inicio}}
       </ion-card-content>
       <ion-card-content>
-       Numeros de alumnos pedidos : {{convocatoria.solicitudEmpresa.numero_alumnos}}
+       Numeros de alumnos : {{convocatoria.solicitudEmpresa?.numero_alumnos}}
       </ion-card-content>
       <ion-card-content>
-       Responsable de PPP : {{convocatoria.solicitudEmpresa.responsablePPP.docente.persona.primer_nombre}}{{convocatoria.solicitudEmpresa.responsablePPP.docente.persona.primer_apellido}}
+       Responsable de PPP : {{convocatoria.solicitudEmpresa?.responsablePPP?.docente?.persona?.primer_nombre}}{{convocatoria.solicitudEmpresa?.responsablePPP?.docente?.persona?.primer_apellido}}
       </ion-card-content>
       <ion-card-content>
-       observaciones : {{convocatoria.solicitudEmpresa.observacion}}
+       Observaciones : {{convocatoria?.solicitudEmpresa?.observacion}}
       </ion-card-content>
 
      

@@ -3,18 +3,18 @@
 <ion-content>
 <ion-card *ngFor="let carrera of carrera ">
     <img  height="45" class="ion-margin-end" src="/assets/icon/ISTA_02.svg">
- 
+    
     <ion-item>
      
-          <ion-icon name="document-text-outline"></ion-icon>
-        <ion-label >Carrera :{{carrera.responsablePPP.carrera.nombre}}</ion-label>
+        <ion-card-content>{{carrera.responsablePPP.carrera.nombre}}</ion-card-content>
+        
       </ion-item>
       <ion-card-content >
      Modalidad : {{carrera.responsablePPP.carrera.modalidad}}
         </ion-card-content>      
       <ion-card-content>
         
-        Coordinador :  : {{carrera.responsablePPP.carrera.docente.abreviatura_titulo}}
+        Coordinador : {{carrera.responsablePPP.carrera.docente.abreviatura_titulo}} 
       </ion-card-content>
  
      <ion-card-content>
@@ -25,7 +25,7 @@
            Responsable de PPP : {{carrera.responsablePPP.docente.abreviatura_titulo}}
               </ion-card-content>
               <ion-card-content>
-                : {{carrera.responsablePPP.docente.persona.primer_nombre}} {{carrera.responsablePPP.docente.persona.primer_apellido}}
+                 {{carrera.responsablePPP.docente.persona.primer_nombre}} {{carrera.responsablePPP.docente.persona.primer_apellido}}
                   </ion-card-content>
                       <ion-card-content>
                        Empresas vinculadas : {{carrera.empresa.nombre}}

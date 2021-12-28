@@ -4,11 +4,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content text-center>
   <img class="icon"  class="ion-align-items-center"  src="/assets/icon/ista.jpg">
   <br>
 
-<ion-content padding>
+
+<br>
   <form [formGroup]="loginForm"
   (ngSubmit)="login()"
   id="loginform"
@@ -16,23 +17,31 @@
 
     <ion-list>
         <ion-item>
-            <ion-label position="stacked">Username</ion-label>
+          
+            <ion-label position="stacked">Usuario</ion-label>
+         
             <ion-input formControlName="username" type="text">
+              <ion-icon name="person"></ion-icon>
             </ion-input>
+            
         </ion-item>
 
 
         <ion-item>
             <ion-label position="stacked">Password</ion-label>
-            <ion-input type="password" formControlName="password" type="text">
+            
+            <ion-input type="password" formControlName="password" type="password">
+              <ion-icon name="lock-open"></ion-icon>
             </ion-input>
+           
         </ion-item>
 
     </ion-list>
+<br>
 
     <ion-row class="signin">
         <ion-col>
-            <ion-button (click)="login()" color="primary" shape="full" expand="block">Iniciar sesion</ion-button>
+            <ion-button shape="round" (click)="login()" color="primary" fill="outline" expand="block">Iniciar sesion</ion-button>
         </ion-col>
     </ion-row>
 

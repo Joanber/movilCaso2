@@ -24,7 +24,7 @@ export class ConvocatoriaPage implements OnInit {
   
   public convocatoria: Convocatoria[] = [];
 
-  constructor(private http:HttpClient, private convocatoriaService: ConvocatoriaService, public navCtrl : NavController, public modalCtrl: ModalController,   private alertCtrl: AlertController,   private router: Router) {}
+  constructor(private http:HttpClient, private convocatoriaService: ConvocatoriaService,  public modalCtrl: ModalController,   private alertCtrl: AlertController,   private router: Router) {}
 
 
 
@@ -53,22 +53,8 @@ export class ConvocatoriaPage implements OnInit {
     });
   }
 
-cargarConvocatoriaById(id: number) {
-  if (!id) {
-    return;
-  }
-  this.convocatoriaService
-    .getConvocatoriaById(id)
-    .subscribe((convocatoria) => {
-      if (!convocatoria) {
-        return this.irListaConvocatorias();
-      }
       
-    });
-}
-irListaConvocatorias() {
-  this.router.navigateByUrl("/informacion/convocatoria");
-}
+
 
   buscar(event){
     this.textoBusqueda=event.detail.value;

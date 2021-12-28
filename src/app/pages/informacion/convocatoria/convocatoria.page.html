@@ -1,17 +1,19 @@
 <app-header titulo="Convocatorias"></app-header>
 
 <ion-content fullscreen class="component-content">
-  <h5 style="text-align: center;">Consultar Convocatoria</h5>
-  <h5 style="text-align: center;">por carrera y fecha.</h5>
+  <h5 style="text-align: center;">Consultar por carrera y fecha</h5>
+
   <ion-grid>
     <ion-row class="ion-align-items-center">
       <ion-col size="12">
         <ion-toolbar *ngIf="fechaSelected == 1">
           <ion-searchbar placeholder='{{defectSelect}}' animated showcancelbutton="" (ionChange)="buscar($event)">
           </ion-searchbar>
+          
           <ion-buttons slot="primary">
             <ion-button (click)="filtroButton()">
-              <ion-icon color="ista" slot="icon-only" name="settings-outline"></ion-icon>
+      
+              <ion-icon color="ista" slot="icon-only"  name="chevron-up-sharp"></ion-icon>
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
@@ -48,9 +50,9 @@
         </ion-card-content>
    
        <ion-card-content>
-        FECHA MAX ENVIAR SOLICITUD : {{convocatoria.fecha_max_recib_solic}}
+        Fecha maxima de recibo : {{convocatoria.fecha_max_recib_solic}}
         </ion-card-content>
-        <ion-button (click)="verDetalle(convocatoria.id)">Ver</ion-button>
+        <ion-button expand="block" shape="round" size="small" (click)="verDetalle(convocatoria.id)">Ver</ion-button>
  
      </ion-card>
 </ion-content>

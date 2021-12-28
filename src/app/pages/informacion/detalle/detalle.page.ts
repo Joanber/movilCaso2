@@ -12,16 +12,20 @@ import { ConvocatoriaService } from 'src/app/services/convocatoria.service';
 export class DetallePage implements OnInit {
   @Input() id;
  //public convocatoria: Convocatoria[] = [];
-convocatoria: Convocatoria;
+convocatoria: Convocatoria={};
   constructor(private convocatoriaService: ConvocatoriaService, private modalCtrl: ModalController) {}
 
 
   ngOnInit() {
  //console.log('ID', this.id)
  this.convocatoriaService.getConvocatoriaById(this.id)
- .subscribe(resp =>  {//console.log(resp);
+ .subscribe(resp =>  { console.log(resp);
   this.convocatoria = resp;
- });
+ },
+ err=>{
+   console.log(err);
+ }
+ );
   }
 
   dismiss(){
