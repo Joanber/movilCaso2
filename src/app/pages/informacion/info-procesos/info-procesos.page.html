@@ -9,6 +9,9 @@
             <ion-select-option value="blonde">Ejecutando</ion-select-option>
             
         </ion-select>
+        <ion-button>
+            <ion-icon name="search-outline"></ion-icon>
+          </ion-button>
     </ion-item>
     <ion-card *ngFor="let procesos of procesos">
         <ion-item>
@@ -26,6 +29,7 @@
           <ion-card-content>
         RESPONSABLE : {{procesos.solicitudEmpresa.responsablePPP.docente.abreviatura}} {{procesos.solicitudEmpresa.responsablePPP.docente.persona.primer_nombre}}  {{procesos.solicitudEmpresa.responsablePPP.docente.persona.primer_apellido}}
               </ion-card-content>
+              
       </ion-card>
     
 </ion-content>

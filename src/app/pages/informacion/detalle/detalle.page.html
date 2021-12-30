@@ -1,52 +1,55 @@
-
-
-
-  <ion-content fullscreen class="component-content">
+<ion-content fullscreen class="component-content">
     
-    <ion-button expand="full" shape="round" fill="outline" size="small"  (click)="dismiss()">
-      <ion-icon name="close-outline"></ion-icon>
-    </ion-button>
-   
-      <ion-card-header *ngIf="convocatoria">
-      
-        <ion-card-title style="text-align: center;">{{convocatoria.carrera?.nombre}}</ion-card-title>
-        <img  height="45" class="ion-margin-end"  align="right" src="/assets/icon/ISTA_02.svg">
-        <br>
- <br>
-        <ion-card-subtitle> Empresa :{{convocatoria.solicitudEmpresa?.empresa.nombre}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        Fecha de emision:{{convocatoria.fecha_emision}} 
-      </ion-card-content>
-      
-      <ion-card-content>
-        Estudiantes de :{{convocatoria.ciclo}} ciclo
-      </ion-card-content>
-     
-      <ion-card-content>
-        Actividades a desarrollar :
-       {{convocatoria.actividades}}
-      </ion-card-content>
-      <ion-card-content>
-      Asignaturas aprobadas :  {{convocatoria.asignaturas}}
-      </ion-card-content>
+  <ion-button expand="full" shape="round" fill="outline" size="small"  (click)="dismiss()">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-button>
+  <img  height="45"  class="ion-margin-end" src="/assets/icon/ISTA_02.svg">
+    <ion-card-header *ngIf="convocatoria">
+      <ion-card-title style="text-align: center;">Anexo 2:  Convocatoria a prácticas pre profesionales </ion-card-title>
+      <br>
+<ion-card-subtitle style="text-align: right"> CONVOCATORIA - {{convocatoria.carrera?.abreviatura}}</ion-card-subtitle>
+<ion-card-subtitle style="text-align: right"> Cuenca {{convocatoria.fecha_emision}} </ion-card-subtitle>
+</ion-card-header>
 
-      <ion-card-content>
-       Fecha maxima de recibo solicitud: {{convocatoria.fecha_max_recib_solic}}
-      </ion-card-content>
-      
-      <ion-card-content>
-      Fecha de inicio :  {{convocatoria.solicitudEmpresa?.fecha_inicio}}
-      </ion-card-content>
-      <ion-card-content>
-       Numeros de alumnos : {{convocatoria.solicitudEmpresa?.numero_alumnos}}
-      </ion-card-content>
-      <ion-card-content>
-       Responsable de PPP : {{convocatoria.solicitudEmpresa?.responsablePPP?.docente?.persona?.primer_nombre}}{{convocatoria.solicitudEmpresa?.responsablePPP?.docente?.persona?.primer_apellido}}
-      </ion-card-content>
-      <ion-card-content>
-       Observaciones : {{convocatoria?.solicitudEmpresa?.observacion}}
-      </ion-card-content>
+<ion-card-content>
+  A los estudiantes interesados:
+  <br>
+  <br>
+  Se convoca a los estudiantes de  
+ {{convocatoria.ciclo}} ciclo de la carrera {{convocatoria.carrera?.nombre}}  que deseen realizar sus prácticas pre profesionales en la
+                empresa {{convocatoria.solicitudEmpresa?.empresa.nombre}}, a presentar la solicitud correspondiente.<br />
+                <br>
+                
+                Las actividades a desarrollar son:
+                <br>
+                *{{convocatoria.actividades}}
+              </ion-card-content>
+                <ion-card-content>
+                Por lo que los postulantes deberán haber aprobado las siguientes
+                asignaturas:
+                <br>
+                {{convocatoria.asignaturas}} 
+</ion-card-content>
+ 
+<ion-card-content>
+  La fecha máxima en la que se receptarán las solicitudes es el {{convocatoria.fecha_max_recib_solic}}.
+  Para mayor información contactarse con {{convocatoria.carrera?.docente.abreviatura}} {{convocatoria.solicitudEmpresa?.responsablePPP.docente.persona.primer_nombre}}  {{convocatoria.solicitudEmpresa?.responsablePPP.docente.persona.primer_apellido}}
+  , docente responsable de prácticas pre profesionales de la
+  carrera.
+</ion-card-content>
 
-     
-      </ion-content>
+<ion-card-content>
+  Atentamente,   
+  <br><br>
+  {{ convocatoria.solicitudEmpresa?.responsablePPP.docente.persona.primer_nombre }}<br>
+  {{ convocatoria.solicitudEmpresa?.responsablePPP.docente.persona.segundo_nombre }}<br>
+  {{ convocatoria.solicitudEmpresa?.responsablePPP.docente.persona.primer_apellido }}<br>
+  {{ convocatoria.solicitudEmpresa?.responsablePPP.docente.persona.segundo_apellido }}<br>
+  ______________________ <br>
+  Responsable de Prácticas Pre Profesionales <br />
+  CARRERA DE
+  {{ convocatoria.solicitudEmpresa?.responsablePPP.carrera.nombre }}
+
+  <br />INSTITUTO SUPERIOR TECNOLÓGICO DEL AZUAY
+</ion-card-content>
+</ion-content>

@@ -1,50 +1,24 @@
-<app-header titulo="Carrera"></app-header>
+<app-header titulo="Anexos"></app-header>
 <ion-content class="ion-padding">
 
     <ion-content>
-        <ion-list lines="full">
-            <form [formGroup]="mainForm" (ngSubmit)="storeData()">
-                <ion-item>
-                    <ion-label position="floating">Nombre </ion-label>
-                    <ion-input formControlName="nombre" type="text" required></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label position="floating">cordinador</ion-label>
-                    <ion-input formControlName="coor" type="text" required>
-                    </ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label position="floating">responsable</ion-label>
-                    <ion-input formControlName="ppp" type="text" required>
-                    </ion-input>
-                </ion-item>
-                <ion-row>
-                    <ion-col>
-                        <ion-button type="submit" color="primary" shape="full" expand="block">
-                            Add Carrera
-                        </ion-button>
-                    </ion-col>
-                </ion-row>
-            </form>
-        </ion-list>
-
+  
         <ion-list>
             <ion-list-header>
-                Carreras
+                Anexos
             </ion-list-header>
 
             <ion-item lines="inset" *ngFor="let data of Data">
-                <ion-label>
-                    <h5>{{data.nombre}}</h5>
-                    <p>{{data.coor}}</p>
-                    <p>{{data.ppp}}</p>
-                </ion-label>
 
-                <div class="item-note" item-end>
-                    <ion-icon name="create" style="zoom:2.0" [routerLink]="['/carrera/', data.id]"></ion-icon>
-                    <ion-icon name="trash" style="zoom:2.0" (click)="deleteCarrera(data.id)"></ion-icon>
-                </div>
-            </ion-item>
+
+                <ion-item href={{data.url}}>
+                    <ion-label>
+                      {{data.nombre}}
+                    </ion-label>
+                    <ion-thumbnail slot="end">
+                     
+                    </ion-thumbnail>
+                  </ion-item>
+        </ion-item>
         </ion-list>
     </ion-content>

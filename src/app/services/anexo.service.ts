@@ -1,24 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { Platform } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 
-export interface Carrera {
+export interface Anexo {
   id: number;
   nombre: string;
-  coor: string;
-  ppp: string;
+  url: string;
 }
-
 @Injectable({
   providedIn: 'root'
 })
-export class InfocarreraService {
+export class AnexoService {
   private storage: SQLiteObject;
-  carrerasList = new BehaviorSubject([]);
+  anexosList = new BehaviorSubject([]);
   private isDbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
@@ -46,8 +45,8 @@ export class InfocarreraService {
     return this.isDbReady.asObservable();
   }
 
-  fetchCarreras(): Observable<Carrera[]> {
-    return this.carrerasList.asObservable();
+  fetchAnexo(): Observable<Anexo[]> {
+    return this.anexosList.asObservable();
   }
 
   // Render fake data
@@ -57,7 +56,7 @@ export class InfocarreraService {
     ).subscribe(data => {
       this.sqlPorter.importSqlToDb(this.storage, data)
         .then(_ => {
-          this.getCarreras();
+          this.getAnexos();
           this.isDbReady.next(true);
         })
         .catch(error => console.error(error));
@@ -65,58 +64,56 @@ export class InfocarreraService {
   }
 
   // Get list
-  getCarreras() {
-    return this.storage.executeSql('SELECT * FROM Carrera', []).then(res => {
-      const items: Carrera[] = [];
+  getAnexos() {
+    return this.storage.executeSql('SELECT * FROM Anexo', []).then(res => {
+      const items: Anexo[] = [];
       if (res.rows.length > 0) {
         for (let i = 0; i < res.rows.length; i++) {
           items.push({
             id: res.rows.item(i).id,
             nombre: res.rows.item(i).nombre,
-            coor: res.rows.item(i).coor,
-            ppp: res.rows.item(i).ppp
+            url: res.rows.item(i).url
           });
         }
       }
-      this.carrerasList.next(items);
+      this.anexosList.next(items);
     });
   }
 
   // Add
-  addCarrera(nombre, coor, ppp) {
-    const data = [nombre, coor, ppp];
-    return this.storage.executeSql('INSERT INTO Carrera(nombre, coor, ppp) VALUES (?,?,?)', data)
+  addAnexo(nombre, url) {
+    const data = [nombre, url];
+    return this.storage.executeSql('INSERT INTO Anexo(nombre, url) VALUES (?,?)', data)
       .then(res => {
-        this.getCarreras();
+        this.getAnexos();
       });
   }
 
   // Get single object
-  getCarrera(id): Promise<Carrera> {
-    return this.storage.executeSql('SELECT * FROM Carrera WHERE id = ?', [id]).then(res => {
+  getAnexo(id): Promise<Anexo> {
+    return this.storage.executeSql('SELECT * FROM Anexo WHERE id = ?', [id]).then(res => {
       return {
         id: res.rows.item(0).id,
         nombre: res.rows.item(0).nombre,
-        coor: res.rows.item(0).coor,
-        ppp: res.rows.item(0).ppp
+        url: res.rows.item(0).url
       };
     });
   }
 
   // Update
-  updateCarrera(id, carrera: Carrera) {
-    const data = [carrera.nombre, carrera.coor, carrera.ppp];
-    return this.storage.executeSql(`UPDATE Carrera SET nombre = ?, coor = ?, ppp = ? WHERE id = ${ id }`, data)
+  updateAnexo(id, anexo: Anexo) {
+    const data = [anexo.nombre, anexo.url];
+    return this.storage.executeSql(`UPDATE Anexo SET nombre = ?, url = ? WHERE id = ${ id }`, data)
       .then(() => {
-        this.getCarreras();
+        this.getAnexos();
       });
   }
 
   // Delete
-  deleteCarrera(id) {
-    return this.storage.executeSql('DELETE FROM Carrera WHERE id = ?', [id])
+  deleteAnexo(id) {
+    return this.storage.executeSql('DELETE FROM Anexo WHERE id = ?', [id])
       .then(_ => {
-        this.getCarreras();
+        this.getAnexos();
       });
   }
 }

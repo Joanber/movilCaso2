@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { Carrera, InfocarreraService } from 'src/app/services/infocarrera.service';
+import { AnexoService } from 'src/app/services/anexo.service';
+
 
 @Component({
   selector: 'app-carrera',
@@ -14,7 +15,7 @@ export class CarreraPage implements OnInit {
   Data: any[] = [];
 
   constructor(
-    private db: InfocarreraService,
+    private db: AnexoService,
     public formBuilder: FormBuilder,
     private toast: ToastController,
     private router: Router
@@ -23,31 +24,32 @@ export class CarreraPage implements OnInit {
   ngOnInit() {
     this.db.dbState().subscribe((res) => {
       if (res) {
-        this.db.fetchCarreras().subscribe(item => {
+        this.db.fetchAnexo().subscribe(item => {
           this.Data = item;
+          console.log(item)
         });
       }
     });
 
     this.mainForm = this.formBuilder.group({
       nombre: [''],
-      coor: [''],
-      ppp: ['']
+      url: [''],
+     
     });
   }
 
   storeData() {
-    this.db.addCarrera(
+    this.db.addAnexo(
       this.mainForm.value.nombre,
-      this.mainForm.value.coor,
-      this.mainForm.value.ppp
+      this.mainForm.value.url,
+     
     ).then((res) => {
       this.mainForm.reset();
     });
   }
 
-  deleteCarrera(id) {
-    this.db.deleteCarrera(id).then(async (res) => {
+  deleteAnexo(id) {
+    this.db.deleteAnexo(id).then(async (res) => {
       const toast = await this.toast.create({
         message: 'Eliminado',
         duration: 2500
