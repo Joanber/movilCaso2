@@ -1,35 +1,26 @@
-
-
 <app-header titulo="Anexos"></app-header>
-<ion-content class="ion-padding">
-
-    <ion-content>
-  
-        <ion-list>
-            <ion-list-header>
-                Anexos
-            </ion-list-header>
-
-            <ion-item lines="inset" *ngFor="let data of Data">
-
-
-                <ion-item href={{data.url}}>
-                    <ion-label>
-                      {{data.nombre}}
-                    </ion-label>
-                    <ion-thumbnail slot="end">
-                     
-                    </ion-thumbnail>
-                  </ion-item>
-        </ion-item>
-        </ion-list>
-    </ion-content>
+<ion-content fullscreen>
+  <ion-content>
+    <ion-list>
+      <ion-list-header>
+        Anexos
+      </ion-list-header>
+      <ion-item lines="inset"  *ngFor="let data of Data">
+        <ion-label>
+          {{data.nombre}}
+        </ion-label>
+        <ion-button href={{data.url}} slot="end">
+          <ion-icon name="cloud-download-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 
 
 
 
 
-<!--
+  <!--
 <ion-content>
     <br>
     <br>
@@ -45,7 +36,7 @@
   </ion-col>
 <h4>Anexos</h4>
   <ion-col size="12" class="ion-text-center">
-    <ion-button class="anexos-button" expand="full" shape="round" fill="outline" color="ista" href="../assets/icon/ANEXOS EDITABLES PPP.docx" >Descargar Anexos 
+    <ion-button class="anexos-button" expand="full" shape="round" fill="outline" color="ista" href="../assets/icon/ANEXOS EDITABLES PPP.docx" >Descargar Anexos
     </ion-button>
   </ion-col>
 </ion-content>

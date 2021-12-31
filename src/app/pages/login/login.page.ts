@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { MenuController } from '@ionic/angular';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from "sweetalert2";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -25,11 +25,13 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService, private menu: MenuController
   ) {
     this.usuario = new Usuario();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.menu.enable(false);
+  }
 
   login() {
     let username = this.loginForm.get("username").value;
@@ -52,6 +54,7 @@ export class LoginPage implements OnInit {
           }
           console.log("valio");
 
+          this.menu.enable(true);
           this.router.navigateByUrl("/inicio");
         },
         (err) => {
@@ -62,7 +65,7 @@ export class LoginPage implements OnInit {
               "Login Fallido",
               "Username y/o Password incorrectas",
               "error"
-            );
+              );
             return;
           }
         }
@@ -70,5 +73,3 @@ export class LoginPage implements OnInit {
     }
   }
 }
-
-

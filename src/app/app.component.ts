@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, MenuController, Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Componente } from './interfaces/interfaces';
 import { DataService } from './services/data.service';
@@ -23,29 +23,31 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private usuarioService: UsuarioService,
-    
-    
+    public usuarioService: UsuarioService,
+
+
  //componentes de menu
     private alertCrtl: AlertController,
     private router: Router,
-    private dataS:DataService
+    private dataS:DataService,private menu:MenuController
   ) {
     this.initializeApp();
   }
-  
+
 
 logout() {
   this.usuarioService.logout();
-  this.router.navigate(["/login"]);
+  this.menu.enable(false);
+  // this.router.navigate(["/login"]);
 }
 
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#FFFFFF');
       this.splashScreen.hide();
       this.componentes=this.dataS.getMenuOpts()
     });
-  
+
   }}

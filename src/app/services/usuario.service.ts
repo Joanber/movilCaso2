@@ -1,22 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, BehaviorSubject, throwError } from 'rxjs';
+import { Platform } from '@ionic/angular';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Rol } from '../models/rol.models';
-import { Usuario } from '../models/usuario.model';
 import { environment } from "src/environments/environment";
 import Swal from "sweetalert2";
+import { Rol } from '../models/rol.models';
+import { Usuario } from '../models/usuario.model';
 const bd_url = environment.bd_url;
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-
+  public splitPanelState: boolean = false;
   private _usuario: Usuario;
   private _token: string;
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private platform: Platform) {}
   login(username: string, password: string): Observable<any> {
     return this.http.post(`${bd_url}/auth/login`, {
       username,
@@ -25,7 +26,7 @@ export class UsuarioService {
   }
 
 
-  
+
   public get usuario(): Usuario {
     if (this._usuario != null) {
       return this._usuario;
@@ -54,15 +55,16 @@ export class UsuarioService {
   }
   isAuthenticated(): boolean {
     if (this.token != null) {
-      return true;
+      if (this.platform.width() > 850) {
+        this.splitPanelState = true;
+      }
     }
-    return false;
+    return this.token != null;
   }
   logout() {
     this._token = null;
     this._usuario = null;
-    localStorage.removeItem("token");
-    localStorage.removeItem("usuario");
+    localStorage.clear();
     this.router.navigateByUrl("login");
   }
   guardarUsuario(response: any): void {
@@ -168,4 +170,3 @@ export class UsuarioService {
     return this.http.get<Rol[]>(`${bd_url}/usuarios/roles`);
   }
 }
-

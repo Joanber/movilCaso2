@@ -1,5 +1,5 @@
 <ion-app>
-	<ion-split-pane when="md" contentId="principal">
+	<ion-split-pane [when]="usuarioService.splitPanelState" contentId="principal">
 		<ion-menu side="start" menuId="primerMenu" contentId="principal">
 			<ion-header>
 				<ion-toolbar color="primary">
