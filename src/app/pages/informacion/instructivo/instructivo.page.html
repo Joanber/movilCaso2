@@ -1,4 +1,35 @@
-<app-header titulo="Instructivos"></app-header>
+
+
+<app-header titulo="Anexos"></app-header>
+<ion-content class="ion-padding">
+
+    <ion-content>
+  
+        <ion-list>
+            <ion-list-header>
+                Anexos
+            </ion-list-header>
+
+            <ion-item lines="inset" *ngFor="let data of Data">
+
+
+                <ion-item href={{data.url}}>
+                    <ion-label>
+                      {{data.nombre}}
+                    </ion-label>
+                    <ion-thumbnail slot="end">
+                     
+                    </ion-thumbnail>
+                  </ion-item>
+        </ion-item>
+        </ion-list>
+    </ion-content>
+
+
+
+
+
+<!--
 <ion-content>
     <br>
     <br>
@@ -18,12 +49,4 @@
     </ion-button>
   </ion-col>
 </ion-content>
-
-<ion-item href="#">
-  <ion-label>
-    Thumbnail End, Anchor Item
-  </ion-label>
-  <ion-thumbnail slot="end">
-   
-  </ion-thumbnail>
-</ion-item>
+-->

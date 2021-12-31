@@ -58,6 +58,7 @@ export class AnexoService {
         .then(_ => {
           this.getAnexos();
           this.isDbReady.next(true);
+          console.log()
         })
         .catch(error => console.error(error));
     });
@@ -76,7 +77,9 @@ export class AnexoService {
           });
         }
       }
+     
       this.anexosList.next(items);
+      console.log(items);
     });
   }
 

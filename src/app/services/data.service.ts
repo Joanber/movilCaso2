@@ -7,14 +7,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { delay } from "rxjs/operators";
 import { Componente } from '../interfaces/interfaces';
 
-//export interface Carrera{
-  //caId:number;
-  //name:string;
-  //coor:string;
-  //ppp:string;
-
-
-
 @Injectable({
   providedIn: 'root'
 })
