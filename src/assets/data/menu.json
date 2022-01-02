@@ -7,60 +7,41 @@
   },
 
   {
-    "name": "Informacion Practicas",
-    "icon": "help-circle",
-    "open": false,
-    "children": [
-      {
-        "title": "Convocatorias",
-        "url": "/informacion/convocatoria",
-        "icon": "reader-sharp",
-        "open": false
-      },
-      {
-        "title": "Procesos",
-        "url": "/informacion/info-procesos",
-        "icon": "stats-chart",
-        "open": false
-      },
-      {
-        "title": "Informacion carreras",
-        "url": "/informacion/info-carrera",
+    "name": "Convocatorias",
+    "redirectTo": "/informacion/convocatoria",
+    "icon": "reader-sharp",
+    "open": false
+  },
+
+  {
+    "name": "Procesos",
+    "redirectTo": "/informacion/info-procesos",
+    "icon": "stats-chart",
+    "open": false
+  },
+{
+        "name": "Informacion carreras",
+        "redirectTo": "/informacion/info-carrera",
         "icon": "help-circle-outline",
         "open": false
       },
-      
       {
-        "title": "Instructivo y Anexos",
-        "url": "/informacion/instructivo",
+        "name": "Instructivo y Anexos",
+        "redirectTo": "/informacion/instructivo",
         "icon": "document-text",
         "open": false
-      }
-    ]
-  },
-  {
-    "name": "Gestion de Vinculación",
-    "icon": "analytics",
-    "open": false,
-    "children": [
-      {
-        "title": "Informe de acreditación de PPP",
-        "url": "/gestion-vinculacion/acreditacion-ppp",
-        "icon": "document-attach",
-        "open": false
-      },
-      {
-        "title": "Consultar estados de procesos",
-        "url": "/gestion-vinculacion/estado-procesos",
+      },{
+        "name": "Consulta estados de procesos",
+        "redirectTo": "/gestion-vinculacion/estado-procesos",
         "icon": "stats-chart",
         "open": false
       },
       {
-        "title": "Historial de procesos",
-        "url": "/gestion-vinculacion/historial-procesos",
+        "name": "Historial de procesos",
+        "redirectTo": "/gestion-vinculacion/historial-procesos",
         "icon": "calendar",
         "open": false
       }
     ]
-  }
-]
+
+    

@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title text-center>Inicio Session</ion-title>
+  <ion-toolbar >
+    <ion-title  color= "warning"text-center>Inicio Session</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,6 +10,7 @@
 
 
 <br>
+
   <form [formGroup]="loginForm"
   (ngSubmit)="login()"
   id="loginform"
@@ -41,12 +42,14 @@
 
     <ion-row class="signin">
         <ion-col>
-            <ion-button shape="round" (click)="login()" color="primary" fill="outline" expand="block">Iniciar sesion</ion-button>
+            <ion-button shape="round" (click)="login()"  fill="outline" expand="block">Iniciar sesion</ion-button>
         </ion-col>
     </ion-row>
+<br>
+<br>
 
 </form>
-  
+
   </ion-content>
     
   

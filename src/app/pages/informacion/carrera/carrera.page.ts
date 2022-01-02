@@ -7,6 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrera.page.scss'],
 })
 export class CarreraPage implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
+    
   }}

@@ -1,7 +1,7 @@
 .active {
-  --ion-text-color: var(--ion-color-primary);
+  --ion-text-color: var( --background: rgb(28, 24, 83););
   ion-icon {
-    color: var(--ion-color-primary);
+    color: var(--ion-color-teriary);
   }
 }
 .active-parent {
@@ -15,6 +15,7 @@
 .sub-item {
   padding-left: 20px;
   font-size: 90%;
+  
 }
 
 ion-icon.parent-icon {
@@ -28,4 +29,14 @@ ion-icon.parent-icon {
 ion-list.sub-list {
   padding-top: 0;
   padding-bottom: 0;
+  
 }
+ion-toolbar {
+  --background: rgb(28, 24, 83);
+  }
+
+ ion-button{
+    --background: rgb(20, 16, 66);
+  
+   
+  }
