@@ -1,5 +1,5 @@
 .active {
-  --ion-text-color: var( --background: rgb(28, 24, 83););
+  --ion-text-color: var(--ion-color-teriary);
   ion-icon {
     color: var(--ion-color-teriary);
   }
@@ -40,3 +40,15 @@ ion-toolbar {
   
    
   }
+  ion-content{
+    --background: rgb(232, 231, 241);
+  
+   
+  }
+  ion-item{
+    --background:#fafafc;
+ 
+ }
+ ion-item {
+  --border-color: var(--ion-color-danger, #18132e);
+}

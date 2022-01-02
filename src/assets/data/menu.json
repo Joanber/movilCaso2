@@ -25,23 +25,21 @@
         "icon": "help-circle-outline",
         "open": false
       },
+      
       {
-        "name": "Instructivo y Anexos",
-        "redirectTo": "/informacion/instructivo",
-        "icon": "document-text",
-        "open": false
-      },{
         "name": "Consulta estados de procesos",
         "redirectTo": "/gestion-vinculacion/estado-procesos",
         "icon": "stats-chart",
         "open": false
       },
       {
-        "name": "Historial de procesos",
-        "redirectTo": "/gestion-vinculacion/historial-procesos",
-        "icon": "calendar",
+        "name": "Instructivo y Anexos",
+        "redirectTo": "/informacion/instructivo",
+        "icon": "document-text",
         "open": false
       }
+      
+      
     ]
 
     
