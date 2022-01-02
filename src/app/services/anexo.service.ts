@@ -26,6 +26,8 @@ export class AnexoService {
     private httpClient: HttpClient,
     private sqlPorter: SQLitePorter,
   ) {
+
+    //creacion de la base sqlite
     this.platform.ready().then(() => {
       console.log('Plataforma', this.platform.platforms());
       if (this.platform.is('android')) {
@@ -49,7 +51,7 @@ export class AnexoService {
     return this.anexosList.asObservable();
   }
 
-  // Render fake data
+  // leer desde archivo sql 
   getFakeData() {
     this.httpClient.get('assets/Init.sql',
       { responseType: 'text' }
@@ -64,7 +66,7 @@ export class AnexoService {
     });
   }
 
-  // Get list
+  // traer todo los datos almacenados
   getAnexos() {
     return this.storage.executeSql('SELECT * FROM Anexo', []).then(res => {
       const items: Anexo[] = [];
@@ -83,7 +85,7 @@ export class AnexoService {
     });
   }
 
-  // Add
+  // añadir nuevo
   addAnexo(nombre, url) {
     const data = [nombre, url];
     return this.storage.executeSql('INSERT INTO Anexo(nombre, url) VALUES (?,?)', data)
@@ -92,7 +94,7 @@ export class AnexoService {
       });
   }
 
-  // Get single object
+  // llamar por id
   getAnexo(id): Promise<Anexo> {
     return this.storage.executeSql('SELECT * FROM Anexo WHERE id = ?', [id]).then(res => {
       return {
@@ -103,14 +105,7 @@ export class AnexoService {
     });
   }
 
-  // Update
-  updateAnexo(id, anexo: Anexo) {
-    const data = [anexo.nombre, anexo.url];
-    return this.storage.executeSql(`UPDATE Anexo SET nombre = ?, url = ? WHERE id = ${ id }`, data)
-      .then(() => {
-        this.getAnexos();
-      });
-  }
+  
 
   // Delete
   deleteAnexo(id) {

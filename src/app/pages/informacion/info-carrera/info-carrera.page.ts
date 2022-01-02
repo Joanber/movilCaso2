@@ -21,7 +21,7 @@ ngOnInit(): void {
   this.getCarreras();
     
 }
-
+//metodo para listar todas las carreras
 getCarreras() {
   this.carreraService.getCarreras().subscribe((carrera) => {
     this.carrera = carrera;

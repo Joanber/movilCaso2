@@ -81,21 +81,8 @@ const routes: Routes = [
             "./pages/gestion-vinculacion/estado-procesos/estado-procesos.module"
           ).then((m) => m.EstadoProcesosPageModule),
       },
-      {
-        path: "acreditacion-ppp",
-        loadChildren: () =>
-          import(
-            "./pages/gestion-vinculacion/acreditacion-ppp/acreditacion-ppp.module"
-          ).then((m) => m.AcreditacionPppPageModule),
-      },
-      {
-        path: "historial-procesos",
-        loadChildren: () =>
-          import(
-            "./pages/gestion-vinculacion/historial-procesos/historial-procesos.module"
-          ).then((m) => m.HistorialProcesosPageModule),
-      },
-
+     
+     
     ],
   },
   {

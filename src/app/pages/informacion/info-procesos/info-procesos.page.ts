@@ -14,7 +14,7 @@ export class InfoProcesosPage implements OnInit {
   ngOnInit(): void {
     this.getProcesos();
   }
-
+//metod para traer todo los procesos
   getProcesos() {
     this.procesosService.getProcesos().subscribe((procesos) => {
       this.procesos = procesos;
@@ -22,6 +22,7 @@ export class InfoProcesosPage implements OnInit {
       console.log(this.procesos);
     });
   }
+  //metod para buscar
   buscar(event: { detail: { value: any; }; }){
     this.textoBusqueda=event.detail.value;
   }

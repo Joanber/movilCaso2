@@ -14,7 +14,7 @@ const bd_ur = environment.bd_url + "/carreras";
 })
 export class ConvocatoriaService {
   constructor(private http: HttpClient) {}
-
+//obtener todas las convocatorias
   getConvocatorias(): Observable<Convocatoria[]> {
     return this.http.get<Convocatoria[]>(`${bd_url}/filtrar`);
   }

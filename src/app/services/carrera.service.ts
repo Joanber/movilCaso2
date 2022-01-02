@@ -12,9 +12,9 @@ const bd_url = environment.bd_url + "/solicitudes_empresas";
 export class CarreraService {
 
   constructor(private http : HttpClient) { }
-  
+  //metod para listar todas las carreras y solicitudes
   getCarreras(): Observable<SolicitudEmpresa[]> {
-
+//llamar endpoint
     return this.http.get<SolicitudEmpresa[]>(`${bd_url}/filtrar`);
   }
 }

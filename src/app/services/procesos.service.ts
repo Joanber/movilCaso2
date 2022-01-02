@@ -10,6 +10,8 @@ const bd_url = environment.bd_url + "/convocatorias";
 export class ProcesosService {
 
   constructor(private http : HttpClient) { }
+
+  //llamar los procesos de convoatorias
   getProcesos(): Observable<Convocatoria[]> {
     return this.http.get<Convocatoria[]>(`${bd_url}/filtrar`);
   }

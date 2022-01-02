@@ -14,7 +14,7 @@ export class DataService {
   constructor(private http:HttpClient) { }
 
 
-
+//metodo de mostrar menu principal
   
   getUsers(){
     return this.http.get('https://jsonplaceholder.typicode.com/users')

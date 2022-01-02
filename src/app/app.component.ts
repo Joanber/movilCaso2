@@ -34,14 +34,14 @@ export class AppComponent {
     this.initializeApp();
   }
 
-
+//cerrar session
 logout() {
   this.usuarioService.logout();
   this.menu.enable(false);
   // this.router.navigate(["/login"]);
 }
 
-
+//inicializar menu
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();

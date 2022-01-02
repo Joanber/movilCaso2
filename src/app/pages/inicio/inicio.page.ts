@@ -21,7 +21,7 @@ export class InicioPage implements OnInit {
     this.componentes=this.dataS.getMenuOpts()
   }
   
-
+//metodo para mostrar menu
   async mostrarPop( evento ) {
 
     const popover = await this.popoverCtrl.create({

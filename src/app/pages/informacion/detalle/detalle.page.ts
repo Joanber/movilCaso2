@@ -15,7 +15,7 @@ export class DetallePage implements OnInit {
 convocatoria: Convocatoria={};
   constructor(private convocatoriaService: ConvocatoriaService, private modalCtrl: ModalController) {}
 
-
+// metodo para traer  los datos por ud de convocatoria
   ngOnInit() {
  //console.log('ID', this.id)
  this.convocatoriaService.getConvocatoriaById(this.id)
@@ -27,7 +27,7 @@ convocatoria: Convocatoria={};
  }
  );
   }
-
+// metodo para cerrar el modal
   dismiss(){
     return this.modalCtrl.dismiss({selectedOption:5});
   }

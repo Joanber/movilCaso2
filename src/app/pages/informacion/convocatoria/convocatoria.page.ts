@@ -24,10 +24,11 @@ export class ConvocatoriaPage implements OnInit {
   
   public convocatoria: Convocatoria[] = [];
 
+
   constructor(private http:HttpClient, private convocatoriaService: ConvocatoriaService,  public modalCtrl: ModalController,   private alertCtrl: AlertController,   private router: Router) {}
 
 
-
+//metodo para mandar los datos al modal
   async verDetalle(id: number){
    const modal = await this.modalCtrl.create({
      component: DetallePage,
@@ -44,7 +45,7 @@ export class ConvocatoriaPage implements OnInit {
   ngOnInit(): void {
     this.getConvocatorias();
   }
-
+// metod para listar todas las convocatorias
   getConvocatorias() {
     this.convocatoriaService.getConvocatorias().subscribe((convocatoria) => {
       this.convocatoria = convocatoria;
@@ -55,16 +56,17 @@ export class ConvocatoriaPage implements OnInit {
 
       
 
-
+//metodo buscar
   buscar(event){
     this.textoBusqueda=event.detail.value;
   }
-
+// buscar por fecha
   buscarFecha(event: { detail: { value: any; }; }){
     var dateFormat = event.detail.value.split('T')[0]; 
     console.log(dateFormat);
     this.textoBusqueda=dateFormat;
   }
+  // buscar por metodos para buscar por fecha y carrera
   async filtroButton() {
     const alert = await this.alertCtrl.create({
       header: 'Metodo de busqueda: ',

@@ -29,10 +29,11 @@ export class LoginPage implements OnInit {
   ) {
     this.usuario = new Usuario();
   }
+  //metodo para no visibilidad del menu
   ngOnInit(): void {
     this.menu.enable(false);
   }
-
+//metodo para  logiarse con token
   login() {
     let username = this.loginForm.get("username").value;
     let password = this.loginForm.get("password").value;

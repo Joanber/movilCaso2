@@ -20,6 +20,7 @@ export class InstructivoPage implements OnInit {
     private router: Router
   ) {}
 
+//metodo para llamar datos
   ngOnInit() {
     this.db.dbState().subscribe((res) => {
       if (res) {
@@ -29,7 +30,7 @@ export class InstructivoPage implements OnInit {
         });
       }
     });
-
+//para mostrar 
     this.mainForm = this.formBuilder.group({
       nombre: [''],
       url: [''],
@@ -46,7 +47,7 @@ export class InstructivoPage implements OnInit {
       this.mainForm.reset();
     });
   }
-
+//metod para eliminar
   deleteAnexo(id) {
     this.db.deleteAnexo(id).then(async (res) => {
       const toast = await this.toast.create({

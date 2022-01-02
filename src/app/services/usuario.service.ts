@@ -13,11 +13,13 @@ const bd_url = environment.bd_url;
   providedIn: 'root'
 })
 export class UsuarioService {
-
+//difinicion  
   public splitPanelState: boolean = false;
   private _usuario: Usuario;
   private _token: string;
   constructor(private http: HttpClient, private router: Router, private platform: Platform) {}
+ 
+ //metodo login con auth
   login(username: string, password: string): Observable<any> {
     return this.http.post(`${bd_url}/auth/login`, {
       username,
@@ -25,7 +27,7 @@ export class UsuarioService {
     });
   }
 
-
+//extraer usuario
 
   public get usuario(): Usuario {
     if (this._usuario != null) {
@@ -39,7 +41,7 @@ export class UsuarioService {
     }
     return new Usuario();
   }
-
+//estraer token
   public get token(): string {
     if (this._token != null) {
       return this._token;
@@ -49,10 +51,12 @@ export class UsuarioService {
     }
     return null;
   }
+  //guardar token
   guardarToken(token: string): void {
     this._token = token;
     localStorage.setItem("token", token);
   }
+  //autenticacion
   isAuthenticated(): boolean {
     if (this.token != null) {
       if (this.platform.width() > 850) {
@@ -61,12 +65,14 @@ export class UsuarioService {
     }
     return this.token != null;
   }
+  //validadion 
   logout() {
     this._token = null;
     this._usuario = null;
     localStorage.clear();
     this.router.navigateByUrl("login");
   }
+  
   guardarUsuario(response: any): void {
     this._usuario = new Usuario();
     this._usuario.username = response.username;
