@@ -16,30 +16,30 @@
   {
     "name": "Procesos",
     "redirectTo": "/informacion/info-procesos",
-    "icon": "stats-chart",
+    "icon": "stats-chart-sharp",
     "open": false
   },
 {
         "name": "Informacion carreras",
         "redirectTo": "/informacion/info-carrera",
-        "icon": "help-circle-outline",
+        "icon": "help-circle-sharp",
         "open": false
       },
       
-      {
-        "name": "Consulta estados de procesos",
-        "redirectTo": "/gestion-vinculacion/estado-procesos",
-        "icon": "stats-chart",
-        "open": false
-      },
+     
       {
         "name": "Instructivo y Anexos",
         "redirectTo": "/informacion/instructivo",
+        "icon": "document-text-sharp",
+        "open": false
+      },
+      
+      {
+        "name": "Institucion",
+        "redirectTo": "/informacion/carrera",
         "icon": "document-text",
         "open": false
       }
-      
-      
     ]
 
     

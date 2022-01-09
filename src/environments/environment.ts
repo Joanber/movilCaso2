@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  bd_url: "http://localhost:8080/api",
+  bd_url: "https://backend-caso2.herokuapp.com/api",
 };
 
-/*
+/*http://localhost:8080/api
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *

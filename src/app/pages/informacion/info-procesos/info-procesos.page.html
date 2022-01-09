@@ -1,21 +1,16 @@
 <app-header titulo="Consultar Procesos"></app-header>
 
 <ion-content>
-    <ion-item>
-
-        <ion-label>Selccione estado</ion-label>
-        <ion-select>
-            <ion-select-option value="brown">Ejecucion</ion-select-option>
-            <ion-select-option value="blonde">Ejecutando</ion-select-option>
-            
-        </ion-select>
-    
-    </ion-item>
+   
     <ion-card *ngFor="let procesos of procesos">
+     
         <ion-item>
             <ion-icon name="stats-chart-outline"></ion-icon>
           <ion-label>ESTADO</ion-label>
-          <ion-label>{{procesos.estado}}</ion-label>
+          <ion-label *ngIf="procesos.estado==true">
+            Ejecucion</ion-label>
+            <ion-label *ngIf="procesos.estado==false">
+              Ejecutado</ion-label>
         </ion-item>
       
         <ion-card-content>

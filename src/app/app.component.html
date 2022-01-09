@@ -6,7 +6,17 @@
 					<ion-title color= "light">Menu Principal</ion-title>
 				</ion-toolbar>
 			</ion-header>
+			
 			<ion-content>
+				<ion-item>
+					<ion-icon name="person-circle-outline"></ion-icon>
+					
+					<ion-label >{{usuarioService.usuario.persona.primer_nombre}} {{usuarioService.usuario.persona.primer_apellido}}</ion-label>
+					
+				  </ion-item>
+				
+				<br>
+			
 				<div *ngFor="let p of componentes | async">
 					<ion-menu-toggle *ngIf="p.redirectTo">
 						<ion-item [routerLink]="p.redirectTo" routerDirection="root" routerLinkActive="active">
