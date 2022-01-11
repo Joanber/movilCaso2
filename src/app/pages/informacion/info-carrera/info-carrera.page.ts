@@ -14,7 +14,7 @@ import { CarreraService } from 'src/app/services/carrera.service';
 })
 export class InfoCarreraPage implements OnInit {
   
-  public carrera: SolicitudEmpresa[] = [];
+  public carrera: Carrera[] = [];
 
 constructor(private carreraService: CarreraService){}
 ngOnInit(): void {
