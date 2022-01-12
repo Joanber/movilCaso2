@@ -1,27 +1,36 @@
 <app-header titulo="Carreras"></app-header>
 
 <ion-content>
-<ion-card *ngFor="let carrera of carrera ">
+<ion-card *ngFor="let responsablePPP of responsablePPP ">
     <img  height="45" class="ion-margin-end" src="/assets/icon/ISTA_02.svg">
     
     <ion-item>
-     
-        <ion-card-content>{{carrera.nombre}}</ion-card-content>
+   
+        <ion-card-content>{{responsablePPP.carrera.nombre}}</ion-card-content>
         
       </ion-item>
       <ion-card-content >
-     Modalidad : {{carrera.modalidad}}
+     Modalidad : {{responsablePPP.carrera.modalidad}}
         </ion-card-content>      
       <ion-card-content>
         
-        Coordinador : {{carrera.docente.abreviatura_titulo}} 
+        Coordinador : {{responsablePPP.carrera.docente.abreviatura_titulo}} 
       </ion-card-content>
  
      <ion-card-content>
-   {{carrera.docente.persona.primer_nombre}} {{carrera.docente.persona.primer_apellido}}
-      </ion-card-content>
+      {{ responsablePPP.carrera.docente.persona.primer_nombre }}
+      {{
+        responsablePPP.carrera.docente.persona.primer_apellido
+      }}    </ion-card-content>
     
-                 
+      <ion-card-content>
+         Responsable:
+         {{ responsablePPP.docente.abreviatura_titulo }}
+      </ion-card-content>
+      <ion-card-content>
+         {{ responsablePPP.docente.persona.primer_nombre }}
+         {{ responsablePPP.docente.persona.primer_apellido }}  </ion-card-content>
+
    </ion-card>
 </ion-content>
 

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Carrera } from 'src/app/models/carrera.model';
+import { ResponsablePPP } from 'src/app/models/responsablePPP.model';
 import { SolicitudEmpresa } from 'src/app/models/solicitudEmpresa.model';
 import { CarreraService } from 'src/app/services/carrera.service';
 
@@ -14,7 +15,7 @@ import { CarreraService } from 'src/app/services/carrera.service';
 })
 export class InfoCarreraPage implements OnInit {
   
-  public carrera: Carrera[] = [];
+  public responsablePPP: ResponsablePPP[] = [];
 
 constructor(private carreraService: CarreraService){}
 ngOnInit(): void {
@@ -23,10 +24,10 @@ ngOnInit(): void {
 }
 //metodo para listar todas las carreras
 getCarreras() {
-  this.carreraService.getCarreras().subscribe((carrera) => {
-    this.carrera = carrera;
+  this.carreraService.getCarreras().subscribe((responsablePPP) => {
+    this.responsablePPP = responsablePPP;
 
-    console.log(this.carrera);
+    console.log(this.responsablePPP);
   });
 }
 
